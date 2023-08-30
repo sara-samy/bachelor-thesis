@@ -1,0 +1,42 @@
+\documentclass[12pt,titlepage,a4paper,onesided]{article}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\begin{document}
+%===========================================================
+\begin{titlepage}
+\begin{center}
+
+\textbf{\LARGE Titel der Bachelorarbeit}
+
+\end{center}
+\end{titlepage}
+%===========================================================
+\tableofcontents
+\pagebreak
+%===========================================================
+\section*{Abstract}
+\pagebreak
+%===========================================================
+\section{First section}
+%===========================================================
+\section{Second section}
+\pagebreak
+%===========================================================
+\begin{thebibliography}{ccccc}
+\addcontentsline{toc}{section}{Literatur}
+
+%So kann eine eine Monographie zitieren:
+\bibitem{Arbarello et al 1985}
+E.\ Arbarello, M.\ Cornalba, P.\ Griffiths, J.\ Harris:
+Geometry of algebraic curves. I.
+Springer, New York, 1985.
+
+%So kann man eine Originalarbeit zitieren:
+\bibitem{Shepherd-Barron 1997}
+N.\ Shepherd-Barron:
+Fano threefolds in positive characteristic.
+Compositio Math.\  105  (1997),  237--265.
+\end{thebibliography}
+%===========================================================
+\end{document}
