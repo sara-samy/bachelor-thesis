@@ -13,14 +13,17 @@
 %======================================
 % Color
 \usepackage{xcolor}
+\definecolor{TUColor}{cmyk}{0, 1.0, 0.99, 0.40}
+\definecolor{DarkBlue}{cmyk}{0.9, 0.6, 0.0, 0.6}
+\definecolor{RichBlack}{cmyk}{0.75, 0.68, 0.67, 0.9}
 %======================================
 % Hyper links and references
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
-    linkcolor={black},
-    urlcolor={blue!80!black},
-    citecolor={blue!80!black}
+    urlcolor={DarkBlue},
+    citecolor={DarkBlue},
+    linkcolor={RichBlack}
 }
 %======================================
 % Citations
@@ -35,6 +38,7 @@
 %======================================
 
 
+\color{RichBlack}
 \begin{document}
 
 
@@ -63,7 +67,7 @@
 \begin{minipage}{0.4\textwidth}
     \begin{flushleft}
         \large
-        \textit{Author}\\
+        \textit{\textcolor{TUColor}{Author}}\\
         Sara Hussein \textsc{Samy}
     \end{flushleft}
 \end{minipage}
@@ -71,7 +75,7 @@
 \begin{minipage}{0.4\textwidth}
     \begin{flushright}
         \large
-        \textit{Supervisor}\\
+        \textit{\textcolor{TUColor}{Supervisor}}\\
         Dr. Jan \textsc{Techer}
     \end{flushright}
 \end{minipage}
