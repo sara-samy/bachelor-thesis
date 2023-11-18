@@ -36,12 +36,49 @@
 
 
 \begin{document}
+
+
+% Title page
 %===========================================================
 \begin{titlepage}
+% Defines a new command for horizontal lines, change thickness here
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \begin{center}
 
-\textbf{\LARGE Titel der Bachelorarbeit}
+\includegraphics[width=0.15\textwidth]{TU-Berlin-Logo.png}\\[1cm]
+\textsc{\LARGE Technische Universität Berlin}\\[1.5cm]
+\textsc{\large Fakultät 2}\\[0.5cm]
+\textsc{\large Institut für Mathematik}\\[0.5cm]
 
+% Title
+\setlength{\aboverulesep}{10pt}
+\setlength{\belowrulesep}{13pt}
+\begin{tabularx}{\textwidth}{ >{\centering\arraybackslash}X}
+\midrule[0.5mm]
+\huge\bfseries An Unnecessarily Long Thesis Title\\
+\midrule[0.5mm]
+\end{tabularx}
+
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+    \begin{flushleft}
+        \large
+        \textit{Author}\\
+        Sara Hussein \textsc{Samy}
+    \end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+    \begin{flushright}
+        \large
+        \textit{Supervisor}\\
+        Dr. Jan \textsc{Techer}
+    \end{flushright}
+\end{minipage}
+
+% Position the date 3/4 down the remaining page
+\vspace{260 pt}
+{\large\today}
 \end{center}
 \end{titlepage}
 %===========================================================
