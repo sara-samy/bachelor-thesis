@@ -6,9 +6,12 @@
 % Page Geometry
 \usepackage[DIV=14,BCOR=2mm,headinclude=true,footinclude=false]{typearea}
 %======================================
+% Headers and footnotes
+\usepackage{fancyhdr}
+%======================================
 % Math packages
 \usepackage{tikz}
-\usepackage{physics} % Norm command
+\usepackage{physics}
 \usepackage{tikz-cd}
 \usepackage{mathtools}
 \usepackage{amsmath, amssymb}
@@ -55,8 +58,28 @@
 %======================================
 
 
-\color{RichBlack}
 \begin{document}
+%===========================================================
+% General settings
+% Font color
+\color{RichBlack}
+% Redefine header "fancy" style
+\fancypagestyle{fancy}{
+    \fancyhead{}
+    \fancyfoot{}
+    \fancyhead[LE,RO]{\footnotesize\itshape\nouppercase{\rightmark}}
+    \fancyhead[LO,RE]{\footnotesize\itshape\nouppercase{\leftmark}}
+    \fancyfoot[C]{\footnotesize\itshape\nouppercase\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.0pt}
+}
+\fancypagestyle{tocstyle}{
+  \fancyhead{}
+  \fancyfoot{}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.0pt}
+}
+%===========================================================
 
 
 % Title page
@@ -106,13 +129,19 @@
 
 
 %===========================================================
-\renewcommand{\contentsname}{Table of contents}
+% Set Abstract page style to "fancy"
+\pagestyle{fancy}
+\section*{Abstract} \label{sec:abstract}
+\pagebreak
+%===========================================================
+% Set TOC page style to "tocstyle"
+\pagestyle{tocstyle}
+\renewcommand{\contentsname}{Contents}
 \tableofcontents
 \pagebreak
 %===========================================================
-\section*{Abstract}
-\pagebreak
-%===========================================================
+% Set all following pages style to "fancy"
+\pagestyle{fancy}
 \section{Introduction} \label{sec:introduction}
 \pagebreak
 %===========================================================
@@ -161,6 +190,8 @@ A fibration is a mapping between two topological spaces that has the homotopy li
 
 
 %===========================================================
+% Set page style to "tocstyle"
+\pagestyle{tocstyle}
 \addcontentsline{toc}{section}{References}
 \bibliographystyle{abbrv}
 \bibliography{refs}
