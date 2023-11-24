@@ -30,6 +30,7 @@
 %======================================
 % German ß ä ö ü
 \usepackage[T1]{fontenc}
+\usepackage[main=english, german]{babel}
 %======================================
 % Color
 \usepackage{xcolor}
@@ -90,9 +91,11 @@
 \begin{center}
 
 \includegraphics[width=0.15\textwidth]{TU-Berlin-Logo.png}\\[1cm]
-\textsc{\LARGE Technische Universität Berlin}\\[1.5cm]
-\textsc{\large Fakultät 2}\\[0.5cm]
-\textsc{\large Institut für Mathematik}\\[0.5cm]
+\begin{otherlanguage}{german}
+\textsc{\LARGE Technische Universit\"at Berlin}\\[1.5cm]
+\textsc{\large Fakult\"at 2}\\[0.5cm]
+\textsc{\large Institut f\"ur Mathematik}\\[0.5cm]
+\end{otherlanguage}
 
 % Title
 \setlength{\aboverulesep}{10pt}
