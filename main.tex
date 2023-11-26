@@ -182,15 +182,77 @@ A fibration is a mapping between two topological spaces that has the homotopy li
 \end{definition}
 \pagebreak
 %===========================================================
-\section{Discrete confocal quadrics}
+\section{Lines of curvature on confocal quadrics}
 \pagebreak
 %===========================================================
 \section{Diagonally related nets on surfaces}
+We start by defining nets on surfaces. Mutually diagonal nets on surfaces were introduced in \cite{MutuallyDiagonalNets2019}.
+
+\begin{definition}[Nets on surfaces]
+\label{def:nets-on-surfaces}
+A net $\mathcal{N}$ on a surface $\Sigma$ is a pair of one-parameter families of curves on $\Sigma$, such that for every point on $\Sigma$ there exists exactly one curve from each of the two families through that point.
+\end{definition}
+
+\begin{remark}[]
+\label{rm:label}
+Let $\mathcal{N} = \left( (\alpha_{s_{1}})_{s_{1} \in I_1}, (\beta_{s_{2}})_{s_{2} \in I_2} \right)$ be a net on a surface
+$\Sigma$ and $P$ a point on the surface then there exists a unique pair $(s_{1}, s_{2}) \in I_{1}\times I_{2}$ such that
+\[
+    P = \alpha_{s_1} \cap \beta_{s_2}
+\]
+We call $(s_1, s_2)$ the \textit{coordinates of the point $P$ with respect to the net $\mathcal{N}$}. Note that these coordinates alone do not uniquely determine the points on the surface, especially that we don't assume that each two curves from different families of $\mathcal{N}$ intersect in one unique point. However, the net together with a specific parameterization of its curves uniquely determine the points of the surface.
+\end{remark}
+
+\begin{example}
+\label{ex:nets-on-surfaces}
+Let $\varphi : I_{1} \times I_{2} \subset \mathbb{R} \to \mathbb{R}^3$ a regular parameterization of a surface, i.e.
+Then the coordinate lines
+\[
+    \left( (\varphi_{u_0})_{u_{0} \in I_1}, (\varphi_{v_0})_{v_{0} \in I_2}  \right)
+\]
+constitute a net on the surface.
+
+\end{example}
+An interesting relation to nets on surfaces is the notion of a \textit{map} \cite{} which is an embedding of a connected
+graph or multigraph $X$ into a surface $\Sigma$, such that all of the components of $\Sigma \setminus X$, called
+the faces of the map, are homeomorphic to unit disks. The face-size $m$ and the vertex-degree $k$ give its type $\{m, k\}$.
+
+\begin{definition}[Diagonally related nets on surfaces]
+\label{def:diag-nets-on-surfaces}
+Let $\mathcal{N}_{1}$ and $\mathcal{N}_{2}$ be two nets on a surface $\Sigma$. Then $\mathcal{N}_{2}$ is called diagonal
+to $\mathcal{N}_{1}$ if the following condition is satisfied whenever any four curves of $\mathcal{N}_{1}$ form a
+(combinatorial) quadrilateral:\\
+\begin{mybox}{}
+If one pair of opposite vertices is connected by a curve from $\mathcal{N}_{2}$, then the other pair of opposite vertices is connected by a curve from $\mathcal{N}_{1}$.
+\end{mybox}
+\end{definition}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{diagonally_related_diagram.png}
+    \caption{An illustration of the diagonal relation between two nets.}
+    \label{fig:diagonally-related-nets}
+\end{figure}
+
+\begin{theorem}[]
+\label{thm:symmetric-definition-diagonal-nets}
+Let $\mathcal{N}_1$ and $\mathcal{N}_2$ be two nets on a surface $\Sigma$. Then $\mathcal{N}_1$ is diagonally related to
+$\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathcal{N}_1$.
+\end{theorem}
+
+\begin{proof}
+    The proof
+\end{proof}
+
+\subsection{Diagonally related parameterizations}
 \pagebreak
 %===========================================================
 \section{Hyperboloids with circular cross sections}
 \subsection{One-sheeted hyperboloids with circular cross sections}
 \subsection{Two-sheeted hyperboloids with circular cross sections}
+\pagebreak
+%===========================================================
+\section{Discrete confocal quadrics}
 \pagebreak
 %===========================================================
 \section{A discretization of circular cross sections of hyperboloids}
