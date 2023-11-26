@@ -6,6 +6,10 @@
 % Page Geometry
 \usepackage[DIV=14,BCOR=2mm,headinclude=true,footinclude=false]{typearea}
 %======================================
+% Document spacing
+\usepackage{setspace}
+\setstretch{1.2}
+%======================================
 % Headers and footnotes
 \usepackage{fancyhdr}
 %======================================
@@ -56,6 +60,11 @@
 %======================================
 % For Title page
 \usepackage{tabularx, booktabs}
+%======================================
+% Fancy boxes
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{mybox}[2][]{breakable, sharp corners, boxrule=0mm, leftrule=2mm, boxsep=0mm, arc=0mm, outer arc=0mm, opacityframe=0}
 %======================================
 
 
