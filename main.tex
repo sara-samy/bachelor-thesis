@@ -171,21 +171,12 @@ As mentioned in the \hyperref[sec:introduction]{introduction}
 The \hyperref[eq:Euler]{equation} as given is..
 \pagebreak
 %===========================================================
-\section{Confocal quadrics}
-\begin{theorem}[Pythagorean theorem]
-\label{thm:pythagorean}
-This is a theorem about right triangles and can be summarised in the next
-equation
-\[ x^2 + y^2 = z^2 \]
-\end{theorem}
-\begin{remark}
-This statement in \autoref{thm:pythagorean} is true.
-\end{remark}
-
-\begin{definition}[Fibration]
-\label{def:fibration}
-A fibration is a mapping between two topological spaces that has the homotopy lifting property for every space \(X\).
+\section{Families of confocal quadrics}
+\begin{definition}[Confocal quadrics]
+\label{def:confocal-quadrics}
+Two quadrics are \textit{confocal}, sometimes also referred to as \textit{homofocal}, if they have common axes and intersect each plane of symmetry along confocal conics.
 \end{definition}
+A classical system of confocal quadrics in Euclidean space $\mathbb{R}^3$ is composed of three families of quadrics given by
 \pagebreak
 %===========================================================
 \section{Lines of curvature on confocal quadrics}
@@ -211,14 +202,23 @@ We call $(s_1, s_2)$ the \textit{coordinates of the point $P$ with respect to th
 
 \begin{example}
 \label{ex:nets-on-surfaces}
-Let $\varphi : I_{1} \times I_{2} \subset \mathbb{R} \to \mathbb{R}^3$ a regular parameterization of a surface, i.e.
-Then the coordinate lines
-\[
-    \left( (\varphi_{u_0})_{u_{0} \in I_1}, (\varphi_{v_0})_{v_{0} \in I_2}  \right)
-\]
-constitute a net on the surface.
-
+Let $\varphi : I_{1} \times I_{2} \subset \mathbb{R}^2 \to \mathbb{R}^3$ be a parameterization of a surface. Then its
+coordinate lines, i.e. the curves
+\begin{align*}
+    \varphi_{u_0} : I_{2} \to \mathbb{R}^3 &\quad \quad \varphi_{u_0}(v) = \varphi(u_0, v), \text{ and} \\
+    \varphi_{v_0} : I_{1} \to \mathbb{R}^3 &\quad \quad \varphi_{v_0}(u) = \varphi(u, v_0)
+\end{align*}
+defined for each fixed $u_{0} \in I_1, v_{0} \in I_2$ constitute a net on the surface $\varphi\left( I_1 \times I_{2}
+\right) \subset \mathbb{R}^3$.
 \end{example}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Dupin-net.png}
+    \caption{Net on Dupin surface.}
+    \label{fig:net-on-dupin}
+\end{figure}
+
 An interesting relation to nets on surfaces is the notion of a \textit{map} \cite{} which is an embedding of a connected
 graph or multigraph $X$ into a surface $\Sigma$, such that all of the components of $\Sigma \setminus X$, called
 the faces of the map, are homeomorphic to unit disks. The face-size $m$ and the vertex-degree $k$ give its type $\{m, k\}$.
@@ -253,9 +253,17 @@ $\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathca
 \subsection{Diagonally related parameterizations}
 \pagebreak
 %===========================================================
-\section{Hyperboloids with circular cross sections}
-\subsection{One-sheeted hyperboloids with circular cross sections}
-\subsection{Two-sheeted hyperboloids with circular cross sections}
+\section{Circular cross sections of hyperboloids and their isometric deformation}
+\subsection{Diagonally related parameterization for one-sheeted hyperboloid}
+\subsection{Diagonally related parameterization for two-sheeted hyperboloid}
+\subsection{Family of affine transformations isometric along circular cross-sections}
+\begin{theorem}
+\label{thm:affine-transformation-hyperboloid}
+
+\end{theorem}
+\pagebreak
+%===========================================================
+\section{Confocal paraboloids}
 \pagebreak
 %===========================================================
 \section{Discrete confocal quadrics}
