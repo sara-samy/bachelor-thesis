@@ -20,7 +20,7 @@
 \usepackage{mathtools}
 \usepackage{amsmath, amssymb}
 %======================================
-% Theorem enviroments
+% Theorem environments
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -30,7 +30,10 @@
 \newtheorem{definition}{Definition}[section]
 % Remark style
 \theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\newtheorem{remark}{\textit{Remark}}[section]
+% Example style
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
 %======================================
 % German ß ä ö ü
 \usepackage[T1]{fontenc}
