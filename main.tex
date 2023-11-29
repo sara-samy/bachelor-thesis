@@ -176,11 +176,35 @@
 \pagebreak
 %===========================================================
 \section{Circular sections of quadrics}
-As mentioned in the \hyperref[sec:introduction]{introduction}
-\begin{align} \label{eq:Euler}
-    e^{i \theta} = \cos(\theta)+i\sin(\theta)
-\end{align}
-The \hyperref[eq:Euler]{equation} as given is..
+\label{sec:circular-sections-of-quadrics}
+
+In this paper, the term \textit{quadric} stands for ellipsoids (including spheres), hyperboloids, and paraboloids. We do not consider singular surfaces of degree two like quadratic cones and cylinders or degenerate cases like planes or pairs of planes (Appendix \ref{appendix:quadrics}).
+
+\subsection{Complex projective space}
+\label{subsec:complex-projective-space}
+
+Before we start investigating circles on quadrics, we briefly recall a few facts about the $n$-dimensional (complex) projective space. A point in the complex projective space $\mathbb{C}\mathbb{P}^{n}$ is determined by $n + 1$ elements $(z_{0}, \dots, z_{n})$ of the field $\mathbb{C}$, not all simultaneously zero. \\
+Two $(n + 1)$-tuples $(z_{0}, \dots, z_{n})$ and $(z'_{0}, \dots, z'_{n})$  determine the same point if and only if there exists $\lambda \in \mathbb{C} \setminus \{ 0 \}$ such that $z_{i} = \lambda z_{i}'$ for $i = 0, \dots, n$. This defines an equivalence relation on $\mathbb{C}^{n + 1} \setminus \{ 0 \}$, and we can identify the complex projective space $\mathbb{C}\mathbb{P}^n$ with the quotient space of $\mathbb{C}^{n + 1} \setminus \{ 0 \}$ under this equivalence relation:
+\[
+    \mathbb{C}\mathbb{P}^n \cong \bigslant{\left( \mathbb{C}^{n + 1} \setminus \{ 0 \} \right)}{\sim}.
+\]
+Any $(n+1)$-tuple defining a point $P$ is called a set of \textit{homogeneous coordinates} of $P$, and we write $P = [z_{0},\dots, z_{n}]$.\par
+
+There is a natural embedding $\mathbb{C}^n \hookrightarrow \mathbb{C}\mathbb{P}^n$ which sends an affine point $(z_{0}, \dots, z_{n-1}) \in \mathbb{C}^n$ to its equivalent class $[z_{0},\dots, z_{n-1}, 1] \in \mathbb{C}\mathbb{P}^n$.  We get in this way all points with $z_{n} \neq 0$ since a point $[z_{0}, \dots, z_{n}]$ with $z_{n} \neq 0$ corresponds to the affine point $(z_{0}/z_{n}, \dots, z_{n-1}/z_{n}) \in \mathbb{C}^{n}$. The points of the complementary set with $z_{n} = 0$ are called \textit{points at infinity}. This notion depends on the choice of the coordinate $z_{n}$. In fact, $\mathbb{C}\mathbb{P}^n$ contains $n + 1$ isomorphic copies of the affine space $\mathbb{C}^n$:
+\[
+U_{i} = \left\{ \left[ \frac{z_{0}}{z_{i}}, \dots, \frac{z_{n}}{z_{i}} \right] : z_{j} \in \mathbb{C} \ \text{for} \ j=0, \dots, n \ \text{and} \ z_{i} \neq 0 \right\} \cong \mathbb{C}^n, \quad \quad i=0, \dots, n.
+\]
+Every point $P \in \mathbb{C}\mathbb{P}^n$ is contained in at least one of these pieces, and can be written down in the affine coordinates of that piece [Figure~\ref{fig:affine-patches-diagram}].\par
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{affine-patches.png}
+    \caption{$\mathbb{C}\mathbb{P}^2$ realised as the gluing of three affine patches $U_0, U_1$, and $U_2$ \cite{toricfanovarieties2005}.}
+    \label{fig:affine-patches-diagram}
+\end{figure}
+
+The planes of the generating circles are parallel \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and intersect the surface only at the points of the circles \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
+
 \pagebreak
 %===========================================================
 \section{Families of confocal quadrics}
@@ -210,7 +234,7 @@ A net $\mathcal{N}$ on a surface $\Sigma$ is a pair of one-parameter families of
 \begin{remark}[]
 \label{rm:label}
 Let $\mathcal{N} = \left( (\alpha_{s_{1}})_{s_{1} \in I_1}, (\beta_{s_{2}})_{s_{2} \in I_2} \right)$ be a net on a surface
-$\Sigma$ and $P$ a point on the surface then there exists a unique pair $(s_{1}, s_{2}) \in I_{1}\times I_{2}$ such that
+$\Sigma$, and $P$ a point on the surface then there exists a unique pair $(s_{1}, s_{2}) \in I_{1}\times I_{2}$ such that
 \[
     P = \alpha_{s_1} \cap \beta_{s_2}
 \]
@@ -229,6 +253,11 @@ defined for each fixed $u_{0} \in I_1, v_{0} \in I_2$ constitute a net on the su
 \right) \subset \mathbb{R}^3$.
 \end{example}
 
+\begin{example}
+\label{ex:circular-sections-form-nets-on-quadrics}
+In \hyperref[sec:circular-sections-of-quadrics]{Section Two} we proved that quadrics contain two circles through each point. Thus, the circular sections quadrics form a net on quadrics.
+\end{example}
+
 \begin{figure}[!tbp]
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{Dupin-net.png}
@@ -243,10 +272,6 @@ defined for each fixed $u_{0} \in I_1, v_{0} \in I_2$ constitute a net on the su
   \end{subfigure}
   \caption{Dupin Cyclides}
 \end{figure}
-
-An interesting relation to nets on surfaces is the notion of a \textit{map} \cite{} which is an embedding of a connected
-graph or multigraph $X$ into a surface $\Sigma$, such that all of the components of $\Sigma \setminus X$, called
-the faces of the map, are homeomorphic to unit disks. The face-size $m$ and the vertex-degree $k$ give its type $\{m, k\}$.
 
 \begin{definition}[Diagonally related nets on surfaces]
 \label{def:diag-nets-on-surfaces}
@@ -293,6 +318,10 @@ $\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathca
 %===========================================================
 \section{Further related work}
 \subsection{Confocal paraboloids}
+\section{Discrete confocal quadrics}
+An interesting relation to nets on surfaces is the notion of a \textit{map} \cite{} which is an embedding of a connected
+graph or multigraph $X$ into a surface $\Sigma$, such that all of the components of $\Sigma \setminus X$, called
+the faces of the map, are homeomorphic to unit disks. The face-size $m$ and the vertex-degree $k$ give its type $\{m, k\}$.
 \pagebreak
 %===========================================================
 \appendix
