@@ -180,21 +180,32 @@
 
 In this paper, the term \textit{quadric} stands for ellipsoids (including spheres), hyperboloids, and paraboloids. We do not consider singular surfaces of degree two like quadratic cones and cylinders or degenerate cases like planes or pairs of planes (Appendix \ref{appendix:quadrics}).
 
-\subsection{Complex projective space}
+\subsection{The complex projective space}
 \label{subsec:complex-projective-space}
 
 Before we start investigating circles on quadrics, we briefly recall a few facts about the $n$-dimensional (complex) projective space. A point in the complex projective space $\mathbb{C}\mathbb{P}^{n}$ is determined by $n + 1$ elements $(z_{0}, \dots, z_{n})$ of the field $\mathbb{C}$, not all simultaneously zero. \\
-Two $(n + 1)$-tuples $(z_{0}, \dots, z_{n})$ and $(z'_{0}, \dots, z'_{n})$  determine the same point if and only if there exists $\lambda \in \mathbb{C} \setminus \{ 0 \}$ such that $z_{i} = \lambda z_{i}'$ for $i = 0, \dots, n$. This defines an equivalence relation on $\mathbb{C}^{n + 1} \setminus \{ 0 \}$, and we can identify the complex projective space $\mathbb{C}\mathbb{P}^n$ with the quotient space of $\mathbb{C}^{n + 1} \setminus \{ 0 \}$ under this equivalence relation:
+Two $(n + 1)$-tuples $(z_{0}, \dots, z_{n})$ and $(z'_{0}, \dots, z'_{n})$ determine the same point if and only if there exists $\lambda \in \mathbb{C} \setminus \{ 0 \}$ such that $z_{i} = \lambda z_{i}'$ for $i = 0, \dots, n$. This defines an equivalence relation~$\sim$ on $\mathbb{C}^{n + 1} \setminus \{ 0 \}$, and we can identify the complex projective space $\mathbb{C}\mathbb{P}^n$ with the quotient space of $\mathbb{C}^{n + 1} \setminus \{ 0 \}$ under this equivalence relation:
 \[
     \mathbb{C}\mathbb{P}^n \cong \bigslant{\left( \mathbb{C}^{n + 1} \setminus \{ 0 \} \right)}{\sim}.
 \]
 Any $(n+1)$-tuple defining a point $P$ is called a set of \textit{homogeneous coordinates} of $P$, and we write $P = [z_{0},\dots, z_{n}]$.\par
 
-There is a natural embedding $\mathbb{C}^n \hookrightarrow \mathbb{C}\mathbb{P}^n$ which sends an affine point $(z_{0}, \dots, z_{n-1}) \in \mathbb{C}^n$ to its equivalent class $[z_{0},\dots, z_{n-1}, 1] \in \mathbb{C}\mathbb{P}^n$.  We get in this way all points with $z_{n} \neq 0$ since a point $[z_{0}, \dots, z_{n}]$ with $z_{n} \neq 0$ corresponds to the affine point $(z_{0}/z_{n}, \dots, z_{n-1}/z_{n}) \in \mathbb{C}^{n}$. The points of the complementary set with $z_{n} = 0$ are called \textit{points at infinity}. This notion depends on the choice of the coordinate $z_{n}$. In fact, $\mathbb{C}\mathbb{P}^n$ contains $n + 1$ isomorphic copies of the affine space $\mathbb{C}^n$:
+There is a natural embedding $\mathbb{C}^n \hookrightarrow \mathbb{C}\mathbb{P}^n$ which sends a point $(z_{0}, \dots, z_{n-1}) \in \mathbb{C}^n$ to its equivalent class $[z_{0},\dots, z_{n-1}, 1] \in \mathbb{C}\mathbb{P}^n$. We get in this way all the \textit{affine points} of $\mathbb{C}\mathbb{P}^n$ with $z_{n} \neq 0$: a point $[z_{0}, \dots, z_{n}]$ with $z_{n} \neq 0$ corresponds to the affine point $(z_{0}/z_{n}, \dots, z_{n-1}/z_{n}) \in \mathbb{C}^{n}$. The points of the complementary set with $z_{n} = 0$ are called \textit{points at infinity}. This notion depends on the choice of the coordinate $z_{n}$. In fact, $\mathbb{C}\mathbb{P}^n$ contains $n + 1$ isomorphic copies of the affine space $\mathbb{C}^n$:
 \[
-U_{i} = \left\{ \left[ \frac{z_{0}}{z_{i}}, \dots, \frac{z_{n}}{z_{i}} \right] : z_{j} \in \mathbb{C} \ \text{for} \ j=0, \dots, n \ \text{and} \ z_{i} \neq 0 \right\} \cong \mathbb{C}^n, \quad \quad i=0, \dots, n.
+    U_{i} = \left\{ \left[ \frac{z_{0}}{z_{i}}, \dots, \frac{z_{n}}{z_{i}} \right] : z_{j} \in \mathbb{C} \ \text{for} \ j=0, \dots, n \ \text{and} \ z_{i} \neq 0 \right\} \cong \mathbb{C}^n, \quad \quad i=0, \dots, n.
 \]
 Every point $P \in \mathbb{C}\mathbb{P}^n$ is contained in at least one of these pieces, and can be written down in the affine coordinates of that piece [Figure~\ref{fig:affine-patches-diagram}].\par
+Once we have introduced homogeneous coordinates, we obtain another natural embedding of $\mathbb{R}\mathbb{P}^n$ into $\mathbb{C}\mathbb{P}^n$ by the map
+\[
+    \mathbb{R}\mathbb{P}^n \hookrightarrow \mathbb{C}\mathbb{P}^n \quad \quad [x_{0}, \dots, x_{n}] \mapsto [x_{0}, \dots, x_{n}] \quad \text{for} \ x_{i} \in \mathbb{R}.
+\]
+A point $[z] \in \mathbb{C}\mathbb{P}^n$ is called \textit{real} if any of the following equivalent conditions are satisfed:
+\begin{itemize}
+    \item It lies in the image of the embedding map, i.e. $[z] \in \mathbb{R}\mathbb{P}^n$.
+    \item It possesses a real representative in homogeneous coordinates, i.e. $[z] = [x_{0}, \dots, x_{n}]$ for $x_{i} \in \mathbb{R}$.
+    \item It is equal to its complex conjugate point, i.e. $[z] = [\bar{z}]$.
+\end{itemize}
+Otherwise, it is called \textit{imaginary}. Note that a real point also has imaginary representatives: for instance $[v] = [i v]$ for any non-zero real vector $v$. Thus, the imaginary points are not simply those with an imaginary representative.
 
 \begin{figure}[H]
     \centering
@@ -203,6 +214,12 @@ Every point $P \in \mathbb{C}\mathbb{P}^n$ is contained in at least one of these
     \label{fig:affine-patches-diagram}
 \end{figure}
 
+\subsection{The absolute quadric}
+\label{subsec:absolute-quadrics}
+
+\subsection{Circles on quadrics}
+\label{subsec:circles-on-quadrics}
+
 The planes of the generating circles are parallel \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and intersect the surface only at the points of the circles \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
 
 \pagebreak
@@ -210,15 +227,88 @@ The planes of the generating circles are parallel \cite[\textcolor{CitationColor
 \section{Families of confocal quadrics}
 \label{sec:confocal-quadrics}
 
-\begin{definition}[Confocal quadrics]
+\begin{definition}[]
 \label{def:confocal-quadrics}
 Two quadrics are \textit{confocal}, sometimes also referred to as \textit{homofocal}, if they have common axes and intersect each plane of symmetry along confocal conics.
 \end{definition}
-A classical system of confocal quadrics in Euclidean space $\mathbb{R}^3$ is composed of three families of quadrics given by
 
-\pagebreak
-%===========================================================
-\section{Lines of curvature on confocal quadrics}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{TU-Berlin-Logo.png}
+    \caption{TO BE ADDED}
+    \label{fig:figgg}
+\end{figure}
+
+Nondegenerate families of confocal quadrics come in two types: ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets; and downward-pointing elliptical paraboloids, hyperbolic paraboloids, and upward-pointing elliptic paraboloids. For the remaining sections, the term \textit{confocal quadrics} will refer only to the first type, i.e. a family of confocal ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets. We briefly mention confocal paraboloids in \hyperref[subsec:confocal-paraboloids]{Section 10.1}.\par
+
+Let $a, b, c \in \mathbb{R}$ with $a > b > c > 0$ and consider a non-parabolic quadric in normal form
+\[
+    \frac{x^2}{a} + \frac{y^2}{b} + \frac{z^2}{c} = 1.
+\]
+Then any quadric confocal with it must necessarily be in normal form
+\[
+    \frac{x^2}{\tilde{a}} + \frac{y^2}{\tilde{b}} + \frac{z^2}{\tilde{c}} = 1
+\]
+with $\tilde{a} > \tilde{b} > \tilde{c} > 0$, and the differences between the fixed parameters of each quadric must all be equal, i.e.
+\[
+    a - b = \tilde{a} - \tilde{b}, \quad a - c = \tilde{a} - \tilde{c}, \ \text{ and } \  b - c = \tilde{b} - \tilde{c}.
+\]
+This motivates the following representation \cite{}:
+
+\begin{definition}[]
+\label{def:family-of-confocal-quadrics}
+Let $a, b, c \in \mathbb{R}$ with $a > b > c > 0$. Then the one-parameter family of quadrics given by
+\[
+    Q_{\lambda} := \left\{ (x, y, z) \in \mathbb{R}^3 : \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} = 1 \right\}, \quad \lambda \in \mathbb{R}
+\]
+is called a family of confocal quadrics.
+\end{definition}
+
+Any triple of real numbers $a > b > c > 0$ divides the real line into four segements, and we can recover the subfamilies of quadrics of different signatures in the confocal family accordingly:
+
+\begin{itemize}
+    \item If $\lambda \in (-\infty, -a)$, then $Q_{\lambda}$ has no real points, or is purely imaginary.
+    \item If $\lambda \in (-a, -b)$, then $Q_{\lambda}$ is a one-parameter family of two-sheeted hyperboloids.
+    \item If $\lambda \in (-b, -c)$, then $Q_{\lambda}$ is a one-parameter family of one-sheeted hyperboloids.
+    \item If $\lambda \in (-c, \infty)$, then $Q_{\lambda}$ is a one-parameter family of confocal ellipsoids. \par
+\end{itemize}
+
+\begin{theorem}[]
+\label{thm:fill-up-euclidean-space}
+For every point $(x, y, z) \in \mathbb{R}^3$ with $x \cdot y \cdot z \neq 0$, i.e. a point not on the standard coordinate planes, there passes exactly one ellipsoid, one one-sheeted hyperboloid, and one two-sheeted hyperboloid from the confocal family $Q_{\lambda}$.
+\end{theorem}
+
+\begin{proof}
+    Let $a, b, c \in \mathbb{R}$ be the fixed parameters of the confocal family $Q_{\lambda}$ with $a > b > c > 0$. Given a point $(x, y, z) \in \mathbb{R}^3$, and clearing the denominators of the confocal quadrics equation
+\[
+    \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} = 1,
+\]
+we see that it's a third degree polynomial equation in $\lambda$. It has three real roots $u_{1}, u_{2}$, and $u_{3}$ which can be solved for explicitly, however for our purposes it's enough to note that the three roots lie in the intervals
+\[
+    -a < u_{1} < -b < u_{2} < -c < u_{1}
+\]
+by looking at the qualitative behavior of the function
+\[
+    \lambda \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}
+\]
+over $\mathbb{R}$ [Figure ~\ref{fig:plot}].
+\end{proof}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graph-for-proof.png}
+    \label{fig:graph-for-proof}
+    \caption{The function $\lambda \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}$ plotted for some $(x_0, y_0, z_0) \in \mathbb{R}^3$, and parameters $a = 10.0$, $b = 5.0$, $c = 3.0$ using \texttt{Wolfram Mathematica}.}
+    \label{fig:plot}
+\end{figure}
+
+Any triple of confocal quadrics of different signatures meet orthogonally in a unique point $(x, y, z)$ in each octant of $\mathbb{R}^3$. Due to the orthogonality of their curves of intersection, if we parameterize an individual quadric in a particular manner using the confocal family then its two families of coordinate lines are lines of curvature. We elaborate these interesting properties in the next few theorems.
+
+\subsection{Confocal Coordinates}
+\label{subsec:confocal-coordinates}
+
+\subsection{Lines of curvature on confocal quadrics}
+\label{subsec:curvature-lines-on-quadrics}
 \pagebreak
 %===========================================================
 \section{Diagonally related nets on surfaces}
@@ -226,7 +316,7 @@ A classical system of confocal quadrics in Euclidean space $\mathbb{R}^3$ is com
 
 We start by defining nets on surfaces. Mutually diagonal nets on surfaces were introduced in \cite{MutuallyDiagonalNets2019}.
 
-\begin{definition}[Nets on surfaces]
+\begin{definition}[]
 \label{def:nets-on-surfaces}
 A net $\mathcal{N}$ on a surface $\Sigma$ is a pair of one-parameter families of curves on $\Sigma$, such that for every point on $\Sigma$ there exists exactly one curve from each of the two families through that point.
 \end{definition}
@@ -258,7 +348,7 @@ defined for each fixed $u_{0} \in I_1, v_{0} \in I_2$ constitute a net on the su
 In \hyperref[sec:circular-sections-of-quadrics]{Section Two} we proved that quadrics contain two circles through each point. Thus, the circular sections quadrics form a net on quadrics.
 \end{example}
 
-\begin{figure}[!tbp]
+\begin{figure}[H]
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{Dupin-net.png}
     \caption{ellipto-hyperbolic}
@@ -283,7 +373,7 @@ If one pair of opposite vertices is connected by a curve from $\mathcal{N}_{2}$,
 \end{mybox}
 \end{definition}
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{diagonally_related_diagram.png}
     \caption{An illustration of the diagonal relation between two nets.}
@@ -317,11 +407,11 @@ $\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathca
 \end{theorem}
 %===========================================================
 \section{Further related work}
+\label{sec:further-related-work}
 \subsection{Confocal paraboloids}
-\section{Discrete confocal quadrics}
-An interesting relation to nets on surfaces is the notion of a \textit{map} \cite{} which is an embedding of a connected
-graph or multigraph $X$ into a surface $\Sigma$, such that all of the components of $\Sigma \setminus X$, called
-the faces of the map, are homeomorphic to unit disks. The face-size $m$ and the vertex-degree $k$ give its type $\{m, k\}$.
+\label{subsec:confocal-paraboloids}
+\subsection{Discrete confocal quadrics}
+\label{subsec:discrete-confocal-quadrics}
 \pagebreak
 %===========================================================
 \appendix
