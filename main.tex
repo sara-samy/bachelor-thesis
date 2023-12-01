@@ -39,6 +39,12 @@
 % Example style
 \theoremstyle{definition}
 \newtheorem{example}{Example}[section]
+% Proposition style
+\theoremstyle{definition}
+\newtheorem{proposition}{Proposition}[section]
+% Sketch of proof style
+\newenvironment{proofsketch}{%
+  \renewcommand{\proofname}{Proof sketch}\proof}{\endproof}
 %======================================
 % German ß ä ö ü
 \usepackage[T1]{fontenc}
