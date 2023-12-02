@@ -27,22 +27,46 @@
 %======================================
 % Theorem environments
 \usepackage{amsthm}
+\newtheoremstyle{BoldTopBottomSpacing}
+  {0.7em} % Space above
+  {0.7em} % Space below
+  {} % Body font
+  {} % Indent amount
+  {\bfseries} % Head font
+  {.} % Punctuation after head
+  {0.5em} % Space after head
+  {} % Head spec
+\newtheoremstyle{BoldTopSpacing}
+  {0.7em}
+  {\topsep}
+  {}
+  {}
+  {\bfseries}
+  {.}
+  {0.5em}
+  {}
+% Thereom
+\theoremstyle{BoldTopSpacing}
 \newtheorem{theorem}{Theorem}[section]
+% Lemma
+\theoremstyle{BoldTopSpacing}
 \newtheorem{lemma}[theorem]{Lemma}
+% Corollary
+\theoremstyle{BoldTopSpacing}
 \newtheorem{corollary}{Corollary}[theorem]
-% Definition style
-\theoremstyle{definition}
+% Definition
+\theoremstyle{BoldTopBottomSpacing}
 \newtheorem{definition}{Definition}[section]
-% Remark style
+% Proposition
+\theoremstyle{BoldTopSpacing}
+\newtheorem{proposition}{Proposition}[section]
+% Example
+\theoremstyle{BoldTopBottomSpacing}
+\newtheorem{example}{Example}[section]
+% Remark
 \theoremstyle{remark}
 \newtheorem{remark}{\textit{Remark}}[section]
-% Example style
-\theoremstyle{definition}
-\newtheorem{example}{Example}[section]
-% Proposition style
-\theoremstyle{definition}
-\newtheorem{proposition}{Proposition}[section]
-% Sketch of proof style
+% Sketch of proof
 \newenvironment{proofsketch}{%
   \renewcommand{\proofname}{Proof sketch}\proof}{\endproof}
 %======================================
