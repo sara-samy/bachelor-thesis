@@ -216,18 +216,30 @@ In this paper, the term \textit{quadric} stands for ellipsoids (including sphere
 \subsection{The complex projective space}
 \label{subsec:complex-projective-space}
 
-Before we start investigating circles on quadrics, we briefly recall a few facts about the $n$-dimensional (complex) projective space. A point in the complex projective space $\mathbb{C}\mathbb{P}^{n}$ is determined by $n + 1$ elements $(z_{0}, \dots, z_{n})$ of the field $\mathbb{C}$, not all simultaneously zero. \\
+Before we start investigating circles on quadrics, we briefly recall a few facts about the $n$-dimensional complex projective space. A point in the complex projective space $\mathbb{C}\mathbb{P}^{n}$ is determined by $n + 1$ elements $(z_{0}, \dots, z_{n})$ of the field $\mathbb{C}$, not all simultaneously zero. \\
 Two $(n + 1)$-tuples $(z_{0}, \dots, z_{n})$ and $(z'_{0}, \dots, z'_{n})$ determine the same point if and only if there exists $\lambda \in \mathbb{C} \setminus \{ 0 \}$ such that $z_{i} = \lambda z_{i}'$ for $i = 0, \dots, n$. This defines an equivalence relation~$\sim$ on $\mathbb{C}^{n + 1} \setminus \{ 0 \}$, and we can identify the complex projective space $\mathbb{C}\mathbb{P}^n$ with the quotient space of $\mathbb{C}^{n + 1} \setminus \{ 0 \}$ under this equivalence relation:
 \[
     \mathbb{C}\mathbb{P}^n \cong \bigslant{\left( \mathbb{C}^{n + 1} \setminus \{ 0 \} \right)}{\sim}.
 \]
 Any $(n+1)$-tuple defining a point $P$ is called a set of \textit{homogeneous coordinates} of $P$, and we write $P = [z_{0},\dots, z_{n}]$.\par
 
-There is a natural embedding $\mathbb{C}^n \hookrightarrow \mathbb{C}\mathbb{P}^n$ which sends a point $(z_{0}, \dots, z_{n-1}) \in \mathbb{C}^n$ to its equivalent class $[z_{0},\dots, z_{n-1}, 1] \in \mathbb{C}\mathbb{P}^n$. We get in this way all the \textit{affine points} of $\mathbb{C}\mathbb{P}^n$ with $z_{n} \neq 0$: a point $[z_{0}, \dots, z_{n}]$ with $z_{n} \neq 0$ corresponds to the affine point $(z_{0}/z_{n}, \dots, z_{n-1}/z_{n}) \in \mathbb{C}^{n}$. The points of the complementary set with $z_{n} = 0$ are called \textit{points at infinity}. This notion depends on the choice of the coordinate $z_{n}$. In fact, $\mathbb{C}\mathbb{P}^n$ contains $n + 1$ isomorphic copies of the affine space $\mathbb{C}^n$:
+One way to express this equivalence relation on $\mathbb{C}^{n+1} \setminus \{ 0 \}$ is by stating that a linear subspace of dimension one in $\mathbb{C}^{n + 1}$ corresponds to a point in $\mathbb{C}\mathbb{P}^n$. Moreover, any non-zero $k$-dimensional linear subspace of $\mathbb{C}^{n + 1}$ can be similarly \enquote{projectivied} by associating to it a \textit{projective subspace} of $\mathbb{C}\mathbb{P}^n$ with projective dimension $k$.
+
+\begin{definition}[]
+\label{def:projective-subspace}
+A $k$-dimensional projective subspace of $\mathbb{C}\mathbb{P}^n$ is a projective space $\mathbb{P}(U)$, where $U$ is a $(k+1)$-dimensional linear subspace of $\mathbb{C}^{n+1}$ defined as
+   \[
+       \mathbb{P}(U) := \{ [z] \in \mathbb{C}\mathbb{P}^n : z \in U \}.
+   \]
+\end{definition}
+
+There are no arithmetic operations defined for points in projective space, but we may use operations on linear subspaces to combine projective subspaces. If $\mathbb{P}(U_{1})$ and $\mathbb{P}(U_{2})$ are two projective subspaces, then their intersection $\mathbb{P}(U_{1}) \cap \mathbb{P}(U_{2})$ is the projective subspace $\mathbb{P}(U_{1} \cap U_{2})$, and we write $\mathbb{P}(U_{1}) \wedge \mathbb{P}(U_{2}) := \mathbb{P}(U_{1} \cap U_{2})$. Similarly, the projective span or \textit{join} of $\mathbb{P}(U_{1})$ and $\mathbb{P}(U_{2})$ is the projective subspace $\mathbb{P}(U_{1} + U_{2})$, and we write $\mathbb{P}(U_{1}) \vee \mathbb{P}(U_{2}) := \mathbb{P}(U_{1} + U_{2})$.
+
+There is a natural embedding $\mathbb{C}^n \hookrightarrow \mathbb{C}\mathbb{P}^n$ which sends a point $(z_{0}, \dots, z_{n-1}) \in \mathbb{C}^n$ to its equivalent class $[z_{0},\dots, z_{n-1}, 1] \in \mathbb{C}\mathbb{P}^n$. This way we get all the \textit{affine points} of $\mathbb{C}\mathbb{P}^n$ with $z_{n} \neq 0$ since a point $[z_{0}, \dots, z_{n}]$ with $z_{n} \neq 0$ corresponds to the affine point $(z_{0}/z_{n}, \dots, z_{n-1}/z_{n}) \in \mathbb{C}^{n}$. The points of the complementary set with $z_{n} = 0$ are called \textit{points at infinity}. This notion depends on the choice of the coordinate $z_{n}$. In fact, $\mathbb{C}\mathbb{P}^n$ contains $n + 1$ isomorphic copies of the affine space $\mathbb{C}^n$:
 \[
     U_{i} = \left\{ \left[ \frac{z_{0}}{z_{i}}, \dots, \frac{z_{n}}{z_{i}} \right] : z_{j} \in \mathbb{C} \ \text{for} \ j=0, \dots, n \ \text{and} \ z_{i} \neq 0 \right\} \cong \mathbb{C}^n, \quad \quad i=0, \dots, n.
 \]
-Every point $P \in \mathbb{C}\mathbb{P}^n$ is contained in at least one of these pieces, and can be written down in the affine coordinates of that piece [Figure~\ref{fig:affine-patches-diagram}].\par
+Every point in $\mathbb{C}\mathbb{P}^n$ is contained in at least one of these pieces, and can be written down in the affine coordinates of that piece [Figure~\ref{fig:affine-patches-diagram}].\par
 Once we have introduced homogeneous coordinates, we obtain another natural embedding of $\mathbb{R}\mathbb{P}^n$ into $\mathbb{C}\mathbb{P}^n$ by the map
 \[
     \mathbb{R}\mathbb{P}^n \hookrightarrow \mathbb{C}\mathbb{P}^n \quad \quad [x_{0}, \dots, x_{n}] \mapsto [x_{0}, \dots, x_{n}] \quad \text{for} \ x_{i} \in \mathbb{R}.
@@ -238,20 +250,46 @@ A point $[z] \in \mathbb{C}\mathbb{P}^n$ is called \textit{real} if any of the f
     \item It possesses a real representative in homogeneous coordinates, i.e. $[z] = [x_{0}, \dots, x_{n}]$ for $x_{i} \in \mathbb{R}$.
     \item It is equal to its complex conjugate point, i.e. $[z] = [\bar{z}]$.
 \end{itemize}
-Otherwise, it is called \textit{imaginary}. Note that a real point also has imaginary representatives: for instance $[v] = [i v]$ for any non-zero real vector $v$. Thus, the imaginary points are not simply those with an imaginary representative.
+Otherwise, it is called \textit{imaginary}. Note that a real point also has imaginary representatives: for instance, $[v] = [i v]$ for any non-zero real vector $v \in \mathbb{R}^{n+1}$. Thus, the imaginary points are not simply those with an imaginary representative.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{affine-patches.png}
-    \caption{$\mathbb{C}\mathbb{P}^2$ realised as the gluing of three affine patches $U_0, U_1$, and $U_2$ \cite{toricfanovarieties2005}.}
+    \caption[$\mathbb{C}\mathbb{P}^2$ realised as the gluing of three affine patches $U_0, U_1$, and $U_2$.]{$\mathbb{C}\mathbb{P}^2$ realised as the gluing of three affine patches $U_0, U_1$, and $U_2$ \cite{toricfanovarieties2005}.}
     \label{fig:affine-patches-diagram}
 \end{figure}
 
-\subsection{The absolute quadric}
+\begin{proposition}[]
+\label{thm:span-real-line}
+An imaginary point $[z] \in \mathbb{C}\mathbb{P}^n$ is contained in exactly one real line, which is spanned by the points $[z]$ and $[\bar{z}]$.
+\end{proposition}
+
+\begin{proof}
+The line $\ell = [z] \vee [\bar{z}]$ is a real line, since it's spanned by the two real points $[z + \bar{z}]$ and $[i(z - \bar{z})]$. If $[z]$ is contained in another real line $\tilde{\ell}$ then $z = \ell \wedge \tilde{\ell}$, which implies that it's a real point. Therefore, $[z]$ is contained in exactly one real line $\ell$.
+\end{proof}
+
+\subsection{The absolute conic of Euclidean geometry}
 \label{subsec:absolute-quadrics}
 
 \subsection{Circles on quadrics}
 \label{subsec:circles-on-quadrics}
+
+\begin{theorem}
+\label{thm:circular-sections-hyperboloid}
+Let $Q \subset \mathbb{R}^3$ be the two-sheeted hyperboloid
+\[
+    \frac{x^2}{\alpha} - \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1
+\]
+with $\alpha, \beta, \gamma > 0$ and $\gamma > \beta$.  Then the circular sections of $Q$ are given by the two families of parallel planes
+\begin{equation}
+\Pi_{\pm}(\lambda_{\pm}) :\sqrt{\beta (\alpha + \gamma)} x \pm \sqrt{\alpha (\gamma - \beta)} y = \lambda_{\pm}
+\end{equation}
+with $\lambda_{\pm} \in \mathbb{R} \setminus \left[-\sqrt{\alpha \beta (\alpha+\beta)}, \sqrt{\alpha \beta (\alpha + \beta )}\right]$.
+\end{theorem}
+
+\begin{proof}
+    Write
+\end{proof}
 
 The planes of the generating circles are parallel \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and intersect the surface only at the points of the circles \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
 
@@ -262,7 +300,7 @@ The planes of the generating circles are parallel \cite[\textcolor{CitationColor
 
 \begin{definition}[]
 \label{def:confocal-quadrics}
-Two quadrics are \textit{confocal}, sometimes also referred to as \textit{homofocal}, if they have common axes and intersect each plane of symmetry along confocal conics.
+In Euclidean geometry, two quadrics $Q, \tilde{Q} \subset \mathbb{R}^3$ are \textit{confocal}, sometimes also referred to as \textit{homofocal}, if they have common axes and intersect each plane of symmetry along confocal conics.
 \end{definition}
 
 \begin{figure}[H]
@@ -286,7 +324,7 @@ with $\tilde{a} > \tilde{b} > \tilde{c} > 0$, and the differences between the fi
 \[
     a - b = \tilde{a} - \tilde{b}, \quad a - c = \tilde{a} - \tilde{c}, \ \text{ and } \  b - c = \tilde{b} - \tilde{c}.
 \]
-This motivates the following representation \cite{}:
+This motivates the following definition \cite{geometryIII}:
 
 \begin{definition}[]
 \label{def:family-of-confocal-quadrics}
@@ -331,7 +369,7 @@ over $\mathbb{R}$ [Figure ~\ref{fig:plot}].
     \centering
     \includegraphics[width=0.8\textwidth]{graph-for-proof.png}
     \label{fig:graph-for-proof}
-    \caption{The function $\lambda \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}$ plotted for some $(x_0, y_0, z_0) \in \mathbb{R}^3$, and parameters $a = 10.0$, $b = 5.0$, $c = 3.0$ using \texttt{Wolfram Mathematica}.}
+    \caption[A plot of the real-valued function $\lambda \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}$]{The function $\lambda \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}$ plotted for some $(x_0, y_0, z_0) \in \mathbb{R}^3$, $a = 10.0$, $b = 5.0$, and $c = 3.0$.}
     \label{fig:plot}
 \end{figure}
 
@@ -422,22 +460,58 @@ $\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathca
 \begin{proof}
     The proof
 \end{proof}
-
-\subsection{Diagonally related parameterizations}
 \pagebreak
 %===========================================================
 \section{Diagonally related parameterization of hyperboloids}
-\subsection{Diagonally related parameterization of one-sheeted hyperboloid}
-\subsection{Diagonally related parameterization of two-sheeted hyperboloid}
+\begin{theorem}[]
+\label{thm:diagonally-related-one-sheeted}
+On any one-sheeted hyperboloid, the net of curvature lines and the net of circular sections are diagonally related.
+\end{theorem}
+\begin{proof}
+    Write
+\end{proof}
+
+\begin{theorem}[]
+\label{thm:diagonally-related-two-sheeted}
+On any two-sheeted hyperboloid, the net of curvature lines and the net of circular sections are diagonally related.
+\end{theorem}
+\begin{proof}
+    Write
+\end{proof}
 \pagebreak
 %===========================================================
 \section{Isometric deformation of circular cross sections of hyperboloids}
-\section{Isometric deformation of one-sheeted hyperboloid}
-\section{Isometric deformation of two-sheeted hyperboloid}
 \begin{theorem}
-\label{thm:affine-transformation-hyperboloid}
-
+\label{thm:affine-transformation-one-sheeted}
+Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{1}$ be the one-sheeted hyperboloid \hyperref[eq:]{}. Then, the one-parameter family of affine transformations given by
+\[
+    \Phi_{(\sigma_1, \sigma_2, \sigma_3)} : \mathbb{R}^3 \to \mathbb{R}^3 \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
+\]
+with $\sigma_{1}, \sigma_{2}, \sigma_{3} > 0$ and
+\begin{equation}
+    \alpha (\beta + \gamma) = \sigma_{2}^2 \beta(\alpha + \gamma) + \sigma_{3}^2 \gamma(\alpha - \beta)
+\end{equation}
+is isometric on the circular cross-sections of $\mathcal{H}_{1}$. Any two affine transforms of $\mathcal{H}_{1}$ constructed in this manner are confocal up to a scaling.
 \end{theorem}
+\begin{proof}
+    Write
+\end{proof}
+
+\begin{theorem}
+\label{thm:affine-transformation-two-hyperboloid}
+Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{2}$ be the two-sheeted hyperboloid \hyperref[eq:]{}. Then, the one-parameter family of affine transformations given by
+\[
+    \Phi_{(\sigma_1, \sigma_2, \sigma_3)} : \mathbb{R}^3 \to \mathbb{R}^3 \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
+\]
+with $\sigma_{1}, \sigma_{2}, \sigma_{3} > 0$ and
+\begin{equation}
+    \beta (\alpha + \gamma) \sigma_{2}^2 - \alpha (\beta - \gamma) \sigma_{1}^2 = \gamma (\alpha + \beta)
+\end{equation}
+is isometric on the circular cross-sections of $\mathcal{H}_{2}$. Any two affine transforms of $\mathcal{H}_{2}$ constructed in this manner are confocal up to a scaling.
+\end{theorem}
+\begin{proof}
+    Write
+\end{proof}
 %===========================================================
 \section{Further related work}
 \label{sec:further-related-work}
