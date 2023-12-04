@@ -71,6 +71,7 @@
   \renewcommand{\proofname}{Proof sketch}\proof}{\endproof}
 %======================================
 % German ß ä ö ü
+\usepackage{lmodern}
 \usepackage[T1]{fontenc}
 \usepackage[main=english,german]{babel}
 %======================================
@@ -109,7 +110,7 @@
 % Fancy boxes
 \usepackage[most]{tcolorbox}
 \tcbuselibrary{skins,breakable}
-\newtcolorbox{mybox}[2][]{breakable, sharp corners, boxrule=0mm, leftrule=2mm, boxsep=0mm, arc=0mm, outer arc=0mm, opacityframe=0}
+\newtcolorbox{mathbox}[2][]{breakable, sharp corners, boxrule=0mm, leftrule=2mm, boxsep=0mm, arc=0mm, outer arc=0mm, opacityframe=0}
 %======================================
 
 
@@ -438,10 +439,10 @@ In \hyperref[sec:circular-sections-of-quadrics]{Section Two} we proved that quad
 \label{def:diag-nets-on-surfaces}
 Let $\mathcal{N}_{1}$ and $\mathcal{N}_{2}$ be two nets on a surface $\Sigma$. Then $\mathcal{N}_{2}$ is called diagonal
 to $\mathcal{N}_{1}$ if the following condition is satisfied whenever any four curves of $\mathcal{N}_{1}$ form a
-(combinatorial) quadrilateral:\\
-\begin{mybox}{}
+(combinatorial) quadrilateral: \newline
+\begin{mathbox}{}
 If one pair of opposite vertices is connected by a curve from $\mathcal{N}_{2}$, then the other pair of opposite vertices is connected by a curve from $\mathcal{N}_{1}$.
-\end{mybox}
+\end{mathbox}
 \end{definition}
 
 \begin{figure}[H]
