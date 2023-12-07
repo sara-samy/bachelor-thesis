@@ -22,8 +22,20 @@
 \usepackage{tikz-cd}
 \usepackage{mathtools}
 \usepackage{amsmath,amssymb}
+% Inline fractions
+\usepackage{nicefrac}
+% Overbar that fits
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 % Quotient space
 \newcommand{\bigslant}[2]{{\raisebox{.2em}{$#1$}\left/\raisebox{-.2em}{$#2$}\right.}}
+% Array stretch for matrices
+\makeatletter
+\renewcommand*\env@matrix[1][\arraystretch]{%
+  \edef\arraystretch{#1}%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{*\c@MaxMatrixCols c}}
+\makeatother
 %======================================
 % Theorem environments
 \usepackage{amsthm}
@@ -280,7 +292,7 @@ Similarly, we define the \textit{complexification} of a projective subspace $\ma
 \[
     \mathbb{P}(U)_{\mathbb{C}} := \mathbb{P}(\{ \lambda x + \gamma y \in \mathbb{C}^{n+1} : x, y \in U, \lambda, \gamma \in \mathbb{C} \}).
 \]
-The result of this complexification is necessarily a projective subspace, whose complex dimension is equal to the real dimension of $\mathbb{P}(U)$ \cite{geometryII}. Thus, a projective subspace in $\mathbb{C}\mathbb{P}^n$ is \textit{real} if and only if $\mathbb{P}(U) = \mathbb{P}(U)_{\mathbb{R}}$. \par
+The result of this complexification is also a projective subspace, whose complex dimension is equal to the real dimension of $\mathbb{P}(U)$ \cite{geometryII}. Thus, a projective subspace in $\mathbb{C}\mathbb{P}^n$ is \textit{real} if and only if $\mathbb{P}(U) = \mathbb{P}(U)_{\mathbb{R}}$. \par
 
 \begin{proposition}[]
 \label{thm:span-real-line}
@@ -297,28 +309,130 @@ The line $\ell = [z] \vee [\bar{z}]$ is a real line, since it's spanned by the t
 \subsection{Circles on quadrics}
 \label{subsec:circles-on-quadrics}
 
-Using the results of the last two sections, we will prove that any (non-singular, non-degenerate) quadric except for hyperbolic paraboloids contains two circles through every point.
+Now we are ready to prove that any (non-singular, non-degenerate) quadric except for hyperbolic paraboloids contains two circles through every point.
 
 \begin{theorem}
 \label{thm:circular-sections-hyperboloid}
 Let $Q \subset \mathbb{R}^3$ be the two-sheeted hyperboloid
 \begin{equation}
 \label{eq:two-sheeted-alpha-beta-gamma}
-\frac{x^2}{\alpha} - \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1
+Q : \frac{x^2}{\alpha} - \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1
 \end{equation}
-with $\alpha, \beta, \gamma > 0$ and $\gamma > \beta$. Then the circular sections of $Q$ are given by the two families of parallel planes
+with $\alpha, \beta, \gamma > 0$ and $\gamma > \beta$. Then the circular sections of $Q$ are given by the two one-parameter families of parallel planes
 \begin{equation}
 \label{eq:planes-two-sheeted}
 \Pi_{\pm}(\lambda_{\pm}) :\sqrt{\beta (\alpha + \gamma)} x \pm \sqrt{\alpha (\gamma - \beta)} y = \lambda_{\pm}, \quad \quad \lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_{0}, \lambda_{0} \right]
 \end{equation}
-with $\lambda_{0} = \sqrt{\alpha \beta (\alpha+\beta)}$.
+with $\lambda_{0} := \sqrt{\alpha \beta (\alpha+\beta)}$.
 \end{theorem}
 
 \begin{proof}
-    Write
+    We embed $\mathbb{R}^3$ into the real projective space $\mathbb{R}\mathbb{P}^3$ and further into the complex projective space $\mathbb{C}\mathbb{P}^3$, and introduce homogeneous coordinates $x_{0}, x_{1}, x_{2}$, and $x_{3}$ such that $x = x_{0} / x_{3}, y = x_{1} / x_{3}$, and $z = x_{2} / x_{3}$. Thus, we identify the plane $x_{3} = 0$ with the plane at infinity. \newline
+We homogenize the affine equation of $Q$ to get
+\[
+    \frac{x_{0}^2}{\alpha} - \frac{x_{1}^2}{\beta} - \frac{x_{2}^2}{\gamma} - x_{3}^2 = 0.
+\]
+As we have shown in \hyperref[thm:span-real-line]{Thereom 1.0}, a conic contained in a plane is a circle if and only if it intersects the absolute conic at infinity
+\[
+    \mathcal{Z} : x_{0}^2 + x_{1}^2 + x_{2}^2 = 0, \quad x_{3} = 0
+\]
+in two points, also known as the circular points of the plane. Computing the intersection $Q \cap \mathcal{Z}$, we get four points at infinity in the form of two complex-conjugate solutions to the intersecting equations
+\[
+P_{\pm} =
+\begin{bmatrix}[1.5]
+\pm \sqrt{\frac{1}{\beta} - \frac{1}{\gamma}}\\
+\sqrt{\frac{1}{\alpha} + \frac{1}{\gamma}}\\
+i\sqrt{\frac{1}{\alpha} + \frac{1}{\beta}}\\
+0
+\end{bmatrix},
+\quad \text{and} \quad
+\overbar{P}_{\pm} =
+\begin{bmatrix}[1.5]
+\pm \sqrt{\frac{1}{\beta} - \frac{1}{\gamma}}\\
+\sqrt{\frac{1}{\alpha} + \frac{1}{\gamma}}\\
+-i\sqrt{\frac{1}{\alpha} + \frac{1}{\beta}}\\
+0
+\end{bmatrix}.
+\]
+Each complex-conjugate pair spans a real line at infinity \hyperref[thm:span-real-line]{(Proposition 2.1)}. We define $\ell_{\pm} := [P_{\pm}] \vee [\overbar{P}_{\pm}]$. The Plücker matrix of each line is given by
+\begin{align*}
+M_{\ell_{\pm}} &= [P_{\pm} \overbar{P}_{\pm}^{\top}] - [\overbar{P}_{\pm} P_{\pm}^{\top}]\\
+&= \begin{bmatrix}
+0 && 0 && \mp 2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}} \sqrt{\frac{1}{\beta} - \frac{1}{\gamma}} && 0\\
+0 && 0 && -2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}} \sqrt{\frac{1}{\alpha} + \frac{1}{\gamma}} && 0\\
+\pm 2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}} \sqrt{\frac{1}{\beta} - \frac{1}{\gamma}} && 2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}}\sqrt{ \frac{1}{\alpha} + \frac{1}{\gamma}} && 0 && 0\\
+\end{bmatrix},
+\end{align*}
+which is a $4 \times 4$ skew-symmetric homogeneous matrix with rank $2$. Its two-dimensional nullspace spans the pencil of planes with the real line $\ell_{\pm}$ as its axis. Therefore, the equation of such pencil in homogeneous coordinates can be written as
+\[
+    \Pi_{\pm}(\lambda_{\pm}) : \sqrt{\beta (\alpha + \gamma)} x_{0} \pm \sqrt{\alpha (\gamma - \beta)} x_{1} - \lambda_{\pm} x_{3} = 0
+\]
+where $\lambda_{\pm}$ is the free parameter of the pencil. Since the planes from each individual family intersect in a line at infinity, they must be parallel planes. By construction, their intersection with $Q$ (if non-empty) gives all the circles contained in $Q$. \par
+It remains to show for which values of $\lambda_{\pm}$ the intersection $Q \cap \Pi_{\pm}(\lambda_{\pm})$ is a non-empty intersection. For this purpose, we identify $Q$ with its Gram matrix
+\[
+Q =
+\begin{bmatrix}
+1 / \alpha && 0 && 0 && 0 \\
+0 && -1 / \beta && 0 && 0 \\
+0 && 0 && -1 / \gamma && 0 \\
+0 && 0 && 0 && -1
+\end{bmatrix},
+\]
+such that its corresponding quadratic form $q$ is given by $q(v) = v^{\top} Q v$. The planes of the circular sections $\Pi_{\pm}(\lambda_{\pm})$ correspond to the points
+\[
+p_{\pm}({\lambda_{\pm}}) =
+\begin{bmatrix}[1.3]
+\sqrt{\beta (\alpha + \gamma)}\\
+\pm \sqrt{\alpha (\gamma - \beta)}\\
+0\\
+-\lambda_{\pm}
+\end{bmatrix}
+\]
+in the dual projective space $(\mathbb{C}\mathbb{P}^3)^{*}$, and their poles with respect to $Q$ have the coordinates $Q^{-1}p_{\pm}({\lambda_{\pm}})$. Thus, $Q \cap \Pi_{\pm}(\lambda_{\pm})$ is a non-empty if and only if
+\[
+    q(Q^{-1}p_{\pm}({\lambda_{\pm}})) = \alpha \beta (\alpha + \gamma) - \alpha \beta (\beta - \gamma) - \lambda_{\pm}^2 \geq 0
+\]
+which is satisfed for $\lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_0, \lambda_0\right]$ with $\lambda := \sqrt{\alpha \beta (\alpha+\beta)}$.
 \end{proof}
 
-The planes of the generating circles are parallel \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and intersect the surface only at the points of the circles \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{circular_sections_two_sheeted_hyperboloid.png}
+    \caption{Two sheeted hyperboloid carry two one-parameter families of circular sections.}
+    \label{fig:ellipto-hyperbolic-cyclides}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid.png}
+    \caption{The planes of circular sections are parallel to the tangent planes at umbilic points.}
+    \label{fig:parabolic-cyclides}
+  \end{subfigure}
+  \caption{Dupin Cyclides}
+\end{figure}
+
+\begin{corollary}[]
+\label{col:planes-parallel-umbilic-points}
+Let $Q$ be the two-sheeted hyperboloid as given in \eqref{eq:two-sheeted-alpha-beta-gamma}. Then the planes of its circular sections \eqref{eq:planes-two-sheeted} are parallel to its tangent planes at its two umbilic points.
+\end{corollary}
+
+\begin{proof}
+    Write.
+\end{proof}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{circles_sections_of_one_sheeted_hyperboloid.png}
+    \caption{One-sheeted hyperboloids carry two one-parameter families of circular sections.}
+    \label{fig:circular_sections_one_sheeted}
+\end{figure}
+
+Using the same idea shown in the proof of \hyperref[thm:circular-sections-hyperboloid]{Thereom (2)}, we can explicity compute the circular sections of ellipsoids, one-sheeted hyperboloids and the elliptical paraboloids. We only give the resulting equations here. \par
+For the ellipsoid, the equation of its two one-parameter families of parallel planes \cite{geometryIII}: \par
+For the one-sheeted hyperboloid, the equation of its two one-parameter families of parallel planes: \par
+For the elliptical paraboloids, the equation of its two one-parameter families of parallel planes: \par
+
+For another proof, we can see the reference \cite{nilovSurfaceContainingLine2011}. The planes of the generating circles are parallel \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and intersect the surface only at the points of the circles \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
 
 \pagebreak
 %===========================================================
