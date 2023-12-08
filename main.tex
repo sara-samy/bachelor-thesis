@@ -18,6 +18,7 @@
 %======================================
 % Math packages
 \usepackage{tikz}
+% Norm command
 \usepackage{physics}
 \usepackage{tikz-cd}
 \usepackage{mathtools}
@@ -51,7 +52,7 @@
 \newtheoremstyle{BoldTopSpacing}
   {0.7em}
   {\topsep}
-  {}
+  {\itshape}
   {}
   {\bfseries}
   {.}
@@ -90,6 +91,9 @@
 % Quotation marks
 \usepackage{csquotes}
 %======================================
+% Lists
+\usepackage{enumitem}
+%======================================
 % Color
 \usepackage{xcolor}
 \definecolor{TUColor}{cmyk}{0, 1.0, 0.99, 0.40} % TU Dark Red
@@ -117,7 +121,7 @@
 \renewcommand\thesubfigure{\roman{subfigure}}
 %======================================
 % For Title page
-\usepackage{tabularx,booktabs}
+\usepackage{tabularx, booktabs}
 %======================================
 % Fancy boxes
 \usepackage[most]{tcolorbox}
@@ -478,7 +482,7 @@ is called a family of confocal quadrics.
 
 Any triple of real numbers $a > b > c > 0$ divides the real line into four segements, and we can recover the subfamilies of quadrics of different signatures in the confocal family accordingly:
 
-\begin{itemize}
+\begin{itemize}[label=$\blacktriangleright$]
     \item If $\lambda < -a$, then $Q_{\lambda}$ has no real points, or is \enquote{purely imaginary}.
     \item If $\lambda \in (-a, -b)$, then $Q_{\lambda}$ is a one-parameter family of confocal two-sheeted hyperboloids.
     \item If $\lambda \in (-b, -c)$, then $Q_{\lambda}$ is a one-parameter family of confocal one-sheeted hyperboloids.
