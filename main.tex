@@ -401,17 +401,15 @@ which is satisfed for $\lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_0, 
 
 \begin{figure}[H]
   \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{circular_sections_two_sheeted_hyperboloid.png}
-    \caption{Two sheeted hyperboloid carry two one-parameter families of circular sections.}
-    \label{fig:ellipto-hyperbolic-cyclides}
+    \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid_red.png}
+    \label{fig:two_sheeted_red}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid.png}
-    \caption{The planes of circular sections are parallel to the tangent planes at umbilic points.}
-    \label{fig:parabolic-cyclides}
+    \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid_blue.png}
+    \label{fig:two_sheeted_blue}
   \end{subfigure}
-  \caption{Dupin Cyclides}
+  \caption{Two-sheeted hyperboloid carry two one-parameter families of circular sections. The planes of circular sections are parallel to the tangent planes at the umbilic points.}
 \end{figure}
 
 \begin{corollary}[]
@@ -628,15 +626,15 @@ On any two-sheeted hyperboloid, the net of curvature lines and the net of circul
 \section{Isometric deformation of circular cross sections of hyperboloids}
 \begin{theorem}
 \label{thm:affine-transformation-one-sheeted}
-Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{1}$ be the one-sheeted hyperboloid \eqref{eq:two-sheeted-alpha-beta-gamma}. Then, the one-parameter family of affine transformations given by
+Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{1}$ be the one-sheeted hyperboloid \eqref{eq:two-sheeted-alpha-beta-gamma}. Then, there exists a one-parameter family of affine transformations given by
 \[
-    \Phi_{(\sigma_1, \sigma_2, \sigma_3)} : \mathbb{R}^3 \to \mathbb{R}^3 \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
+    \mathbb{R}^3 \to \mathbb{R}^3 \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
 \]
 with $\sigma_{1}, \sigma_{2}, \sigma_{3} > 0$ and
 \begin{equation}
     \beta(\alpha + \gamma) \sigma_{2}^2 + \gamma(\alpha - \beta) \sigma_{3}^2 = \alpha (\beta + \gamma)
 \end{equation}
-is isometric on the circular sections of $\mathcal{H}_1$. Any affine transforms of $\mathcal{H}_1$ under this map are confocal up to scaling.
+that is isometric on the circular sections of $\mathcal{H}_{1}$. Any affine transforms of $\mathcal{H}_1$ under this map are confocal up to scaling.
 \end{theorem}
 \begin{proof}
     Write
@@ -644,19 +642,45 @@ is isometric on the circular sections of $\mathcal{H}_1$. Any affine transforms 
 
 \begin{theorem}
 \label{thm:affine-transformation-two-hyperboloid}
-Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{2}$ be the two-sheeted hyperboloid \eqref{eq:two-sheeted-alpha-beta-gamma}. Then, the one-parameter family of affine transformations given by
+Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{2}$ be the two-sheeted hyperboloid \eqref{eq:two-sheeted-alpha-beta-gamma}. Then, there exists a one-parameter family of affine transformations given by
 \[
-    \Phi_{(\sigma_1, \sigma_2, \sigma_3)} : \mathbb{R}^3 \to \mathbb{R}^3 \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
+    \mathbb{R}^3 \to \mathbb{R}^3 \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
 \]
 with $\sigma_{1}, \sigma_{2}, \sigma_{3} > 0$ and
 \begin{equation}
     \beta (\alpha + \gamma) \sigma_{2}^2 - \alpha (\beta - \gamma) \sigma_{1}^2 = \gamma (\alpha + \beta)
 \end{equation}
-is isometric on the circular sections of $\mathcal{H}_2$. Any affine transforms of $\mathcal{H}_2$ under this map are confocal up to scaling.
+that is isometric on the circular sections of $\mathcal{H}_{2}$. Any affine transforms of $\mathcal{H}_1$ under this map are confocal up to scaling.
 \end{theorem}
 \begin{proof}
     Write
 \end{proof}
+
+\begin{theorem}
+\label{thm:isometric-deformation-para-one-hyperboloid}
+Let $a > b > c > 0$ and $\mathcal{H}_{1}(s_{2})$ be a one-parameter family of one-sheeted hyperboloids given by
+\begin{equation}
+x^2 + \frac{a - c}{b - c} \frac{y^2}{\sin(s_{2})^2} -  \frac{a - b}{b - c} \frac{z^2}{ \cos(s_{2})^2} = 1.
+\end{equation}
+Then for each $s_{2} \in \left[ 0, \frac{\pi}{2} \right]$, the two parameterizations
+\begin{align*}
+    \varphi_{\pm} &: [-s_{1}^{0}, s_{1}^{0}] \times (-\infty, \infty) \to \mathbb{R}^3 \quad \quad (s_{1}, s_{3}) \mapsto (x, y, z) \\[10pt]
+    x(s_{1}, s_{2}, s_{3}) &= \pm \sqrt{1 - \frac{b - c}{a - b} \sinh^2(s_{1})} \sqrt{1 + \frac{b - c}{a - c}\sinh^2(s_{3})} \\[10pt]
+    y(s_{1}, s_{2}, s_{3}) &= \frac{b - c}{\sqrt{a - b} \sqrt{a - c}} \sinh(s_{1}) \sin(s_{2})\cosh(s_{3}) \\[10pt]
+    z(s_{1}, s_{2}, s_{3}) &= \frac{b - c}{\sqrt{a - b} \sqrt{a - c}}  \cosh(s_{1}) \cos(s_{2}) \sinh(s_{3})
+\end{align*}
+with
+\[
+    s_{1}^{0} = \sinh^{-1}\left( \sqrt{ \frac{a - b}{b - c} } \right)
+\]
+are curvature line parameterizations of the two halves $\mathcal{H}_{1}(s_{2}) \cap \{ x \geq 0\}$ and $\mathcal{H}_{1}(s_{2}) \cap \{ x \leq 0\}$ of the one-sheeted hyperboloid, and the curves $s_{1} \pm s_{3} = \text{const.}$ are congruent circles. \newline
+This one-parameter family of one-sheeted hyperboloids $\mathcal{H}_{1}(s_{2})$ includes two planar degenerations corresponding to $s_{2} = 0,\left(y = 0 \right)$ and $s_{2} = \pi/2, \left( z = 0 \right)$.
+\end{theorem}
+
+\begin{theorem}
+\label{thm:isometric-deformation-para-two-hyperboloid}
+Let $a > b > c > 0$ and $\mathcal{H}_{2}(s_{1})$ be a one-parameter family of two-sheeted hyperboloids given by
+\end{theorem}
 %===========================================================
 \section{Further related work}
 \label{sec:further-related-work}
