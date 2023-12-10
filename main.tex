@@ -228,9 +228,7 @@
 \section{Circular sections of quadrics}
 \label{sec:circular-sections-of-quadrics}
 
-In this paper, the term \textit{quadric} stands for ellipsoids (including spheres), hyperboloids, and paraboloids. We do not consider singular surfaces of degree two like quadratic cones and cylinders or degenerate cases like planes or pairs of planes (Appendix \ref{appendix:quadrics}).
-
-Before we start investigating circles on quadrics, we recall a few facts about the $n$-dimensional complex projective space, and introduce Euclidean geometry as a subgeometry of projective geometry in the next two subsections. \par
+Before we start investigating circles on quadrics, we recall a few facts about the $n$-dimensional complex projective space, and introduce Euclidean geometry as a subgeometry of projective geometry. \par
 
 \subsection{The complex projective space $\mathbb{C}\mathbb{P}^n$}
 \label{subsec:complex-projective-space}
@@ -307,8 +305,103 @@ An imaginary point $[z] \in \mathbb{C}\mathbb{P}^n$ is contained in exactly one 
 The line $\ell = [z] \vee [\bar{z}]$ is a real line, since it's spanned by the two real points $[z + \bar{z}]$ and $[i(z - \bar{z})]$. If $[z]$ is contained in another real line $\tilde{\ell}$ then $z = \ell \wedge \tilde{\ell}$, which implies that it's a real point. Therefore, $[z]$ is contained in exactly one real line $\ell$.
 \end{proof}
 
-\subsection{The absolute conic of Euclidean geometry}
+\subsection{The absolute quadric of Euclidean geometry}
 \label{subsec:absolute-quadrics}
+
+In the \textit{Klein Erlangen program} Euclidean and non-Euclidean geometries are considered as subgeometries of projective geometry. In this section, we introduce the general notion of \textit{Cayley-Klein Distance} \cite[\textcolor{CitationColor}{Ch.~4}]{bobenkoNonEuclideanLaguerreGeometry} and examine the case of Euclidean geometry. \par
+
+\subsubsection{Cayley-Klein Distance}
+\label{subsubsec:Cayley-Klein-Distance}
+
+\subsubsection{The circular points of two-dimensional Euclidean geometry}
+\label{subsubsec:circular-points-two-dimensional}
+
+Let $\mathcal{Q}$ be a degenerate quadric with signature $(+ + 0)$ in the dual projective space $(\mathbb{R}\mathbb{P}^{2})^{*} \subset (\mathbb{C}\mathbb{P}^{2})^{*}$, and let $b$ denote its associated bilinear form
+\[
+    b(x, y) = x_{0}y_{0} + x_{1}y_{1}
+\]
+The equation of the quadric
+\begin{equation}
+\label{eq:degenerate-quadric-dual-space-two-dimensional}
+    \mathcal{Q} \; : \; x_{0}^2 + x_{1}^2 = 0
+\end{equation}
+defines (upon complexification) two imaginary lines
+\[
+    \ell \; : \; x_{0} + i x_{1}, \quad \text{and} \quad \bar{\ell} \; : \; x_{0} - i x_{1}
+\]
+that intersect in a real point $\ell \wedge \bar{\ell} = [0, 0, 1]$. By duality, this real point corresponds to the line at infinity
+\[
+    \ell_{\infty} \; : \; x_{2} = 0
+\]
+in the primal space $\mathbb{R}\mathbb{P}^2$, whereas the two imaginary lines correspond to two complex conjugate points
+\[
+    \ell^{*} = [1, i, 0] \quad \text{and} \quad \bar{\ell}^{*} = [1, -i, 0]
+\]
+that lie on $\ell_{\infty}$. Thus, the dual quadric of $\mathcal{Q}$ is a non-degenerate imaginary quadric with signature $(+ +)$ contained entirely in $\ell_{\infty}$ \textemdash in other words, it consists only of two points
+\begin{equation}
+\label{circular-points-at-infinity}
+    \mathcal{Z} = \left\{ [1, i, 0], [1, -i, 0] \right\}.
+\end{equation}
+
+The two points $\ell^{*}$ and $\bar{\ell}^{*}$ of $\mathcal{Z}$ are known as the \textit{circular points at infinity}. The reason behind this naming is that, from a projective standpoint, circles are precisely the conics through $\ell^{*}$ and $\bar{\ell}^{*}$ [Figure~\ref{fig:three-points-determine-a-circle}]. This gives some intuition to the fact that, e.g. only three non-collinear points uniquely determine a circle, whereas generically, five points are needed to determine a conic, or that the cocircularity of four points is (projectively) the coconicality of these four points with $\ell^{*}$ and $\bar{\ell}^{*}$. The next theorem reformulates this idea. For a short proof, see \cite[\textcolor{CitationColor}{Proposition~9.9}]{geometryII}. \par
+
+\begin{theorem}
+\label{thm:conic-through-circular-points}
+A non-degenerate conic is a circle if and only if it contains the two circular points of $\mathcal{Z}$. Furthermore, the two imaginary tangent lines of a circle at the two circular points intersect in its center.
+\end{theorem}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{three-points-determine-a-circle.png}
+\caption[Circles are conics through the circular points at infinity.]{An affine circle through the points $A, B$, and $C$ is a conic through $A, B, C, \ell^{*}$, and $\bar{\ell}^{*}$ in $\mathbb{C}\mathbb{P}^2$.}
+    \label{fig:three-points-determine-a-circle}
+\end{figure}
+
+\subsubsection{The absolute conic of three-dimensional Euclidean geometry}
+\label{subsubsec:absolute-conic-three-dimensional}
+
+Let $\mathcal{Q}$ be a degenerate quadric with signature $(+ + + 0)$ in the dual projective space $(\mathbb{R}\mathbb{P}^{3})^{*} \subset (\mathbb{C}\mathbb{P}^{3})^{*}$, and let $b$ denote its associated bilinear form
+\[
+    b(x, y) = x_{0} y_{0} + x_{1} y_{1} + x_{2} y_{2}.
+\]
+The equation of the quadric
+\begin{equation}
+\label{eq:degenerate-quadric-dual-space-three-dimensional}
+    \mathcal{Q} \; : \; x_{0}^2 + x_{1}^2 + x_{2}^2 = 0
+\end{equation}
+defines (upon complexification) an imaginary cone, whose real part consists only of one point, namely its vertex $v := [0, 0, 0, 1]$ in homogeneous coordinates. Since $b(q, v) = 0$ for all points $q \in (\mathbb{R}\mathbb{P}^{3})^{*}$, the vertex is the only singular point of $Q$, and thus it has an \textit{undetermined} polar hyperplane, i.e. $H_{v} =  (\mathbb{R}\mathbb{P}^{3})^{*}$. \par
+Let $p$ denote an arbitrary point on $\mathcal{Q} \setminus \{v\}$. Then, its polar hyperplane $H_{p}$ with respect to $\mathcal{Q}$ coincides with its tangent plane, since for any point $q \in H_{p}$ conjugate to $p$, the line $[p] \vee [q]$ is a tangent line to $Q$ at $p$. Moreover, this tangent plane necessarily passes through the vertex point. \par
+If we dualize this construction, we find that the singular vertex point corresponds to the plane at infinity
+\[
+    H_{\infty} \; : \; x_{3} = 0
+\]
+in the primal space $\mathbb{R}\mathbb{P}^3$, whereas the tangent planes $H_{p}$ of $\mathcal{Q} \setminus \{v\}$ correspond to points that lie on $H_{\infty}$ and satisfy (\ref{eq:degenerate-quadric-dual-space-three-dimensional}). Thus, the dual quadric of $Q$ is a non-degenerate imaginary conic with signature $(+ + +)$, that is entirely contained in the plane at infinity
+\begin{equation}
+\label{absolute-conic}
+\mathcal{Z} \; : \; x_{0}^2 + x_{1}^2 + x_{2}^2 = 0, \quad x_{3} = 0.
+\end{equation}
+
+This next theorem is adapted from \cite[\textcolor{CitationColor}{Ch.~10}]{alveroAnalyticProjectiveGeometry}. Its statement is true for any dimension. In fact, it implies Theorem~\ref{thm:conic-through-circular-points} in the two-dimensional case. However, we restrict ourselves to stating the three-dimensional case here. \par
+
+\begin{theorem}
+\label{thm:quadrics-contain-absolute}
+The quadrics in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ that contain the absolute quadric $\mathcal{Z}$ of Euclidean geometry \textemdash as constructed above, are:
+\begin{itemize}[label=$\blacktriangleright$]
+    \item the spheres,
+    \item the imaginary spheres,
+    \item the isotropic cones, and
+    \item the pairs of hyperplanes $H$ and $H_{\infty}$, where $H$ is any hyperplane of $\mathbb{R}\mathbb{P}^3$.
+\end{itemize}
+\end{theorem}
+
+\begin{proof}
+Write proof.
+\end{proof}
+
+\begin{corollary}
+\label{col:spheres-contain-absolute}
+A quadric in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ is a sphere if and only if it is non-degenerate, has real points and contains the absolute quadric $\mathcal{Z}$.
+\end{corollary}
 
 \subsection{Circles on quadrics}
 \label{subsec:circles-on-quadrics}
@@ -429,12 +522,12 @@ Let $Q$ be the two-sheeted hyperboloid as given in \eqref{eq:two-sheeted-alpha-b
     \label{fig:circular_sections_one_sheeted}
 \end{figure}
 
-Using the same idea shown in the proof of \hyperref[thm:circular-sections-hyperboloid]{Thereom (2)}, we can explicity compute the circular sections of ellipsoids, one-sheeted hyperboloids and the elliptical paraboloids. We only give the resulting equations here. \par
-For the ellipsoid, the equation of its two one-parameter families of parallel planes \cite{geometryIII}: \par
-For the one-sheeted hyperboloid, the equation of its two one-parameter families of parallel planes: \par
+The same idea shown in the proof of Thereom~\ref{thm:circular-sections-hyperboloid} can be used to explicity compute the circular sections of ellipsoids, one-sheeted hyperboloids and the elliptical paraboloids. We only give the resulting equations here. \par
+In the case of ellipsoids, the equation of its two one-parameter families of parallel planes is given by ... \cite{geometryIII}: \par
+In the case of one-sheeted hyperboloids, the equation of its two one-parameter families of parallel planes: There are no umbilic points. \par
 For the elliptical paraboloids, the equation of its two one-parameter families of parallel planes: \par
 
-For another proof, we can see the reference \cite{nilovSurfaceContainingLine2011}. The planes of the generating circles are parallel \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and intersect the surface only at the points of the circles \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
+For another point of view, one can refer to \cite{nilovSurfaceContainingLine2011}, in particular \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
 
 \pagebreak
 %===========================================================
@@ -505,7 +598,7 @@ by looking at the qualitative behavior of the function
 \[
     \lambda \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}
 \]
-over $\mathbb{R}$ [Figure ~\ref{fig:plot}].
+over $\mathbb{R}$ [Figure~\ref{fig:plot}].
 \end{proof}
 
 \begin{figure}[H]
