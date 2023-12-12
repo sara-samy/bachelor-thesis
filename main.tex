@@ -287,12 +287,12 @@ Once we have introduced homogeneous coordinates, we obtain another natural embed
     \mathbb{R}\mathbb{P}^n \hookrightarrow \mathbb{C}\mathbb{P}^n \quad \quad [x_{0}, \dots, x_{n}] \mapsto [x_{0}, \dots, x_{n}] \quad \text{for} \ x_{i} \in \mathbb{R}.
 \]
 A point $[z] \in \mathbb{C}\mathbb{P}^n$ is called \textit{real} if any of the following equivalent conditions are satisfed:
-\begin{itemize}
+\begin{itemize}[label=$\blacktriangleright$]
     \item It lies in the image of the embedding map, i.e. $[z] \in \mathbb{R}\mathbb{P}^n$.
     \item It possesses a real representative in homogeneous coordinates, i.e. $[z] = [x_{0}, \dots, x_{n}]$ for $x_{i} \in \mathbb{R}$.
     \item It is equal to its complex conjugate point, i.e. $[z] = [\bar{z}]$.
 \end{itemize}
-Otherwise, it is called \textit{imaginary}. Note that a real point also has imaginary representatives: for instance, $[v] = [i v]$ for any non-zero real vector $v \in \mathbb{R}^{n+1}$. Thus, the imaginary points are not simply those with an imaginary representative.
+Otherwise, it is called \textit{imaginary}. Note that a real point also has imaginary representatives: for instance, $[v] = [i v]$ for any non-zero $v \in \mathbb{R}^{n+1}$. Thus, the imaginary points are not simply those with an imaginary representative.
 
 For a projective subspace $\mathbb{P}(U) \subset \mathbb{C}\mathbb{P}^n$, we define its \textit{real section} by
 \[
@@ -311,18 +311,46 @@ An imaginary point $[z] \in \mathbb{C}\mathbb{P}^n$ is contained in exactly one 
 \end{proposition}
 
 \begin{proof}
-The line $\ell = [z] \vee [\bar{z}]$ is a real line, since it's spanned by the two real points $[z + \bar{z}]$ and $[i(z - \bar{z})]$. If $[z]$ is contained in another real line $\tilde{\ell}$ then $z = \ell \wedge \tilde{\ell}$, which implies that it's a real point. Therefore, $[z]$ is contained in exactly one real line $\ell$.
+The line $\ell = [z] \vee [\bar{z}]$ is a real line, since it's spanned by the two real points $[z + \bar{z}]$ and $[i(z - \bar{z})]$. If $[z]$ is contained in another real line $\tilde{\ell}$, then $z = \ell \wedge \tilde{\ell}$, which implies that it's a real point. Therefore, $[z]$ is contained in exactly one real line $\ell$.
 \end{proof}
 
 \subsection{The absolute quadric of Euclidean geometry}
 \label{subsec:absolute-quadrics}
 
-In the \textit{Klein Erlangen program} Euclidean and non-Euclidean geometries are considered as subgeometries of projective geometry. In this section, we introduce the general notion of \textit{Cayley-Klein Distance} \cite[\textcolor{CitationColor}{Ch.~4}]{bobenkoNonEuclideanLaguerreGeometry} and examine the case of Euclidean geometry. \par
+In the \textit{Klein Erlangen program}, Euclidean and non-Euclidean geometries are considered as subgeometries of projective geometry. Projective models for, e.g. hyperbolic, Euclidean, and spherical geometry are obtained by using a fundamental quadric to induce the corresponding metric. Every particular geometry deals with properties of figures in some space that remain invariant under some group of transformations of that space. These transformation groups can be regarded as subgroups of the projective linear group, that preserve the corresponding fundamental quadric. \par
+In this section, we briefly introduce the notion of \textit{Cayley-Klein Distance} \cites[\textcolor{CitationColor}{Ch.~4}]{bobenkoNonEuclideanLaguerreGeometry}[\textcolor{CitationColor}{Ch.~9}]{geometryII}, \newline
+which is used to derive an actual metric for a particular geometry. Then, we examine the construction of Euclidean geometry in that setting. \par
 
-\subsubsection{Cayley-Klein Distance}
-\label{subsubsec:Cayley-Klein-Distance}
+\begin{definition}
+\label{def:cayley-klein-distance}
+Let $\mathcal{Q}$ be a quadric in $\mathbb{R}\mathbb{P}^n$ with the corresponding bilinear form $b$. Then we denote by
+\[
+    K_{\mathcal{Q}}(x, y) := \frac{b(x, y)^2}{b(x, x) b(y, y)}
+\]
+the \textit{Cayley-Klein distance} of any two points $x, y \in \mathbb{R}\mathbb{P}^n \setminus \mathcal{Q}$ that are not on the quadric. Furthermore, we set $K_{\mathcal{Q}}(x, y) = \infty$ if $b(x, x) b(y, y) = 0$, and $b(x, y) \neq 0$. In the presence of a Cayley-Klein distance, the quadric $\mathcal{Q}$ is called the \textit{absolute quadric}.
+\end{definition}
 
-\subsubsection{The circular points of two-dimensional Euclidean geometry}
+Note that the Cayley-Klein distance is projectively well-defined, in the sense that it depends neither on the choice of bilinear form corresponding to $\mathcal{Q}$ nor on the choice of homogeneous coordinates of $\mathbb{R}\mathbb{P}^n$. \par
+
+\begin{remark}
+\label{rm:isometries-cayley-klein}
+\sloppy Let $f : \mathbb{R}\mathbb{P}^n \to \mathbb{R}\mathbb{P}^n$ denote a projective transformation, represented by a linear isomorphism ${ F : \mathbb{R}^{n+1} \to \mathbb{R}^{n+1} }$ that is orthogonal with respect to $\mathcal{Q}$, i.e.
+\[
+    b(F(X), F(Y)) = b(X, Y)
+\]
+for all $X, Y \in \mathbb{R}^{n + 1}$, and $f = [F]$. Then
+\[
+    K_{\mathcal{Q}}(f(x), f(y)) = K_{\mathcal{Q}}(x, y)
+\]
+for $x = [X], y = [Y] \in \mathbb{R}\mathbb{P}^n \setminus \{ Q \}$. The Cayley-Klein distance is invariant under the group of projective transformations that preserve the quadric $\mathcal{Q}$, which we call its corresponding group of \textit{isometries}. \par
+\end{remark}
+
+\begin{example}
+\label{ex:hyperbolic-geometry}
+Write
+\end{example}
+
+\subsubsection{The circular points of the Euclidean plane}
 \label{subsubsec:circular-points-two-dimensional}
 
 Let $\mathcal{Q}$ be a degenerate quadric with signature $(+ + 0)$ in the dual projective space $(\mathbb{R}\mathbb{P}^{2})^{*} \subset (\mathbb{C}\mathbb{P}^{2})^{*}$, and let $b$ denote its associated bilinear form
@@ -330,10 +358,9 @@ Let $\mathcal{Q}$ be a degenerate quadric with signature $(+ + 0)$ in the dual p
     b(x, y) = x_{0}y_{0} + x_{1}y_{1}
 \]
 The equation of the quadric
-\begin{equation}
-\label{eq:degenerate-quadric-dual-space-two-dimensional}
+\begin{equation*}
     \mathcal{Q} \; : \; x_{0}^2 + x_{1}^2 = 0
-\end{equation}
+\end{equation*}
 defines (upon complexification) two imaginary lines
 \[
     \ell \; : \; x_{0} + i x_{1}, \quad \text{and} \quad \bar{\ell} \; : \; x_{0} - i x_{1}
@@ -347,12 +374,11 @@ in the primal space $\mathbb{R}\mathbb{P}^2$, whereas the two imaginary lines co
     \ell^{*} = [1, i, 0] \quad \text{and} \quad \bar{\ell}^{*} = [1, -i, 0]
 \]
 that lie on $\ell_{\infty}$. Thus, the dual quadric of $\mathcal{Q}$ is a non-degenerate imaginary quadric with signature $(+ +)$ contained entirely in $\ell_{\infty}$ \textemdash in other words, it consists only of two points
-\begin{equation}
-\label{circular-points-at-infinity}
+\begin{equation*}
     \mathcal{Z} = \left\{ [1, i, 0], [1, -i, 0] \right\}.
-\end{equation}
+\end{equation*}
 
-The two points $\ell^{*}$ and $\bar{\ell}^{*}$ of $\mathcal{Z}$ are known as the \textit{circular points at infinity}. The reason behind this naming is that, from a projective standpoint, circles are precisely the conics through $\ell^{*}$ and $\bar{\ell}^{*}$ [Figure~\ref{fig:three-points-determine-a-circle}]. This gives some intuition to the fact that, e.g. only three non-collinear points uniquely determine a circle, whereas generically, five points are needed to determine a conic, or that the cocircularity of four points is (projectively) the coconicality of these four points with $\ell^{*}$ and $\bar{\ell}^{*}$. The next theorem reformulates this idea. For a short proof, see \cite[\textcolor{CitationColor}{Proposition~9.9}]{geometryII}. \par
+The two points $\ell^{*}$ and $\bar{\ell}^{*}$ of $\mathcal{Z}$ are known as the \textit{circular points at infinity}. The reason behind the naming is that, from a projective standpoint, these two imaginary points at infinity are contained in the complexification of every real circle. Indeed, circles are precisely conics through $\ell^{*}$ and $\bar{\ell}^{*}$ [Figure~\ref{fig:three-points-determine-a-circle}]. This gives some intuition to the fact that, e.g. only three non-collinear points uniquely determine a circle, whereas generically, five points are needed to determine a conic, or that the cocircularity of four points is (projectively) the coconicality of these four points with $\ell^{*}$ and $\bar{\ell}^{*}$. The next Theorem reformulates this idea. For a short proof, see \cite[\textcolor{CitationColor}{Proposition~9.9}]{geometryII}. \par
 
 \begin{theorem}
 \label{thm:conic-through-circular-points}
@@ -361,12 +387,12 @@ A non-degenerate conic is a circle if and only if it contains the two circular p
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{three-points-determine-a-circle.png}
-\caption[Circles are conics through the circular points at infinity.]{An affine circle through the points $A, B$, and $C$ is a conic through $A, B, C, \ell^{*}$, and $\bar{\ell}^{*}$ in $\mathbb{C}\mathbb{P}^2$.}
+    \includegraphics[width=0.6\textwidth]{three-points-determine-a-circle.png}
+\caption[Circles are conics through the circular points at infinity.]{A real circle through the points $A, B$, and $C$ is (upon complexification) a conic through $A, B, C, \ell^{*}$, and $\bar{\ell}^{*}$ in $\mathbb{C}\mathbb{P}^2$.}
     \label{fig:three-points-determine-a-circle}
 \end{figure}
 
-\subsubsection{The absolute conic of three-dimensional Euclidean geometry}
+\subsubsection{The absolute conic of Euclidean space}
 \label{subsubsec:absolute-conic-three-dimensional}
 
 Let $\mathcal{Q}$ be a degenerate quadric with signature $(+ + + 0)$ in the dual projective space $(\mathbb{R}\mathbb{P}^{3})^{*} \subset (\mathbb{C}\mathbb{P}^{3})^{*}$, and let $b$ denote its associated bilinear form
@@ -384,47 +410,100 @@ If we dualize this construction, we find that the singular vertex point correspo
 \[
     H_{\infty} \; : \; x_{3} = 0
 \]
-in the primal space $\mathbb{R}\mathbb{P}^3$, whereas the tangent planes $H_{p}$ of $\mathcal{Q} \setminus \{v\}$ correspond to points that lie on $H_{\infty}$ and satisfy (\ref{eq:degenerate-quadric-dual-space-three-dimensional}). Thus, the dual quadric of $Q$ is a non-degenerate imaginary conic with signature $(+ + +)$, that is entirely contained in the plane at infinity
+in the primal space $\mathbb{R}\mathbb{P}^3$, whereas the tangent planes $H_{p}$ of $\mathcal{Q} \setminus \{v\}$ correspond to points that lie on $H_{\infty}$ and satisfy (\ref{eq:degenerate-quadric-dual-space-three-dimensional}) in homogeneous coordinates. Thus, the dual quadric of $Q$ is a non-degenerate imaginary conic with signature $(+ + +)$, that is entirely contained in the plane at infinity
 \begin{equation}
-\label{absolute-conic}
+\label{eq:absolute-conic}
 \mathcal{Z} \; : \; x_{0}^2 + x_{1}^2 + x_{2}^2 = 0, \quad x_{3} = 0.
 \end{equation}
 
-This next theorem is adapted from \cite[\textcolor{CitationColor}{Ch.~10}]{alveroAnalyticProjectiveGeometry}. Its statement is true for any dimension. In fact, it implies Theorem~\ref{thm:conic-through-circular-points} in the two-dimensional case. However, we restrict ourselves to stating the three-dimensional case here. \par
+This next Theorem is adapted from \cite[\textcolor{CitationColor}{Ch.~10}]{alveroAnalyticProjectiveGeometry}. Its statement is true for any $n$-dimensional projective space $\mathbb{R}\mathbb{P}^n \subset \mathbb{C}\mathbb{P}^n$, considered with its respective Euclidean absolute quadric. In fact, it implies Theorem~\ref{thm:conic-through-circular-points} in the two-dimensional case, where the absolute quadric is given by the circular points at infinity. We restrict ourselves to stating only the three-dimensional case here. \par
 
 \begin{theorem}
 \label{thm:quadrics-contain-absolute}
-The quadrics in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ that contain the absolute quadric $\mathcal{Z}$ of Euclidean geometry \textemdash as constructed above, are:
+The quadrics in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ that contain the absolute conic $\mathcal{Z}$ of Euclidean geometry \textemdash as constructed above, are:
 \begin{itemize}[label=$\blacktriangleright$]
-    \item the spheres,
-    \item the imaginary spheres,
-    \item the isotropic cones, and
-    \item the pairs of hyperplanes $H$ and $H_{\infty}$, where $H$ is any hyperplane of $\mathbb{R}\mathbb{P}^3$.
+    \item spheres,
+    \item imaginary spheres,
+    \item cones with a real, affine vertex, and
+    \item pairs of hyperplanes $H$ and $H_{\infty}$, where $H$ is an arbitrary hyperplane of $\mathbb{R}\mathbb{P}^3$.
 \end{itemize}
 \end{theorem}
 
 \begin{proof}
-Write proof.
+Let $\mathcal{Q}$ denote a quadric in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ with the homogeneous equation
+\begin{equation}
+    \mathcal{Q} \; : \; a_{0}x_{0}^2 + a_{1}x_{1}^2 + a_{2}x_{2}^2 + a_{3}x_{3}^2 + 2 \sum_{\substack{i = 1 \\ j < i}}^{3} a_{i, j} x_{i} x_{j} = 0,
+\end{equation}
+and $a_{i}, a_{i, j} \in \mathbb{R}$, not all zero. Then $\mathcal{Q}$ contains the absolute conic $\mathcal{Z}$ (\ref{eq:absolute-conic}) if and only if
+\begin{equation*}
+    a_{0}x_{0}^2 + a_{1}x_{1}^2 + a_{2}x_{2}^2 + 2 \sum_{\substack{i = 1 \\ j < i}}^{2} a_{i, j} x_{i} x_{j} = \lambda \left( x_{0}^2 + x_{1}^2 + x_{2}^2 \right)
+\end{equation*}
+for some $\lambda \in \mathbb{R}$ \cite[\textcolor{CitationColor}{Lemma~6.1.10}]{alveroAnalyticProjectiveGeometry}. Thus, if $\mathcal{Q}$ contains the absolute conic, it must have equation of the form
+\begin{equation}
+\label{eq:quadrics-contain-absolute}
+   \lambda \left( x_{0}^2 + x_{1}^2 + x_{2}^2 \right) + 2 \sum_{\substack{i = 0}}^{2} a_{i, 3} x_{i} x_{3} + a_{3} x_{3}^2 = 0.
+\end{equation}
+\par
+If $\lambda = 0$, then equation (\ref{eq:quadrics-contain-absolute}) defines a pair of hyperplanes $H$ and $H_{\infty}$, where $H$ is an arbitrary hyperplane of $\mathbb{R}\mathbb{P}^3$ with affine equation
+\[
+    H \; : \; 2 \left( a_{0, 3} x_{0} + a_{1, 3} x_{1} + a_{2, 3} x_{2} \right) + a_{3} = 0.
+\]
+In particular, if $a_{i, 3} = 0$ for $i=0,1,2$, and $a_{3} \neq 0$, we get double copies of the plane at infinity
+\[
+    2 \; H_{\infty} \; : \; x_{3}^2 = 0.
+\]
+\par
+If $\lambda \neq 0$, then $\mathcal{Q}$ does not contain $H_{\infty}$, but contains only the absolute conic as its section at infinity. We can rewrite the equation (\ref{eq:quadrics-contain-absolute}) as
+\[
+    x_{0}^2 + x_{1}^2 + x_{2}^2 + 2 \sum_{\substack{i = 0}}^{2} a'_{i} x_{i} x_{3} + a' x_{3}^2 = 0
+\]
+with $a'_{i} := a_{i, 3} / \lambda$, and $a' = a_{3} / \lambda$. Switching to affine coordinates and completing the squares, we get an equation of the form
+\begin{equation}
+\label{eq:real-or-imaginary-sphere}
+(x_{0} - a'_{0})^2 + (x_{1} - a'_{1})^2  + (x_{2} - a'_{2})^2 = D,
+\end{equation}
+with $D := \sum_{i = 0}^{2} a'_{i} - a'$. The quadric $\mathcal{Q}$ it defines is degenerate if and only if $D = 0$, and in that case, $\mathcal{Q}$ is an imaginary cone over the absolute with real vertex given in affine coordinates by $(a'_{0}, a'_{1}, a'_{2})$. \par
+If $D \neq 0$, then the quadric is non-degenerate, and we consider the two cases: If $D > 0$, then the equation (\ref{eq:real-or-imaginary-sphere}) is just the condition for an affine point $(x_{0}, x_{1}, x_{2})$ to be at distance $\sqrt{D}$ from the point $(a'_{0}, a'_{1}, a'_{2})$. Thus, the quadric $\mathcal{Q}$ is a sphere with center $(a'_{0}, a'_{1}, a'_{2})$ and radius $\sqrt{D}$. \par
+If $D < 0$, then $\mathcal{Q}$ is a non-degenerate quadric with no real points, that intersects $H_{\infty}$ in the absolute conic $\mathcal{Z}$. Thus, we can call it an imaginary sphere with center $(a'_{0}, a'_{1}, a'_{2})$ and radius $\sqrt{D} = i \sqrt{-D}$.
 \end{proof}
 
 \begin{corollary}
 \label{col:spheres-contain-absolute}
-A quadric in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ is a sphere if and only if it is non-degenerate, has real points and contains the absolute quadric $\mathcal{Z}$.
+A non-degenerate quadric in $\mathbb{R}\mathbb{P}^3 \subset \mathbb{C}\mathbb{P}^3$ is a sphere if and only if it has real points and contains the absolute quadric $\mathcal{Z}$.
 \end{corollary}
 
 \subsection{Circles on quadrics}
 \label{subsec:circles-on-quadrics}
 
-Now we are ready to prove that any (non-singular, non-degenerate) quadric except for hyperbolic paraboloids contains two circles through every point.
+Now we are ready to find circles on quadrics in $\mathbb{R}\mathbb{P}^3$. First, we note that circles are planar sections of spheres, and since any sphere contains the absolute conic $\mathcal{Z}$, it follows that a conic contained in a plane in $\mathbb{R}\mathbb{P}^3$ is a circle if and only if it intersects $\mathcal{Z}$ in two points. \par
+Let $\mathcal{Q}$ be a non-degenerate, non-parabolic quadric in $\mathbb{R}\mathbb{P}^3$, and consider its restriction to the plane at infinity
+\[
+    H_{\infty} \; : \; x_{3} = 0.
+\]
+Let $\mathcal{C}$ denote this conic section at infinity. Then $\mathcal{C}$ intersects $\mathcal{Z}$ in four points, which are complex conjugate pairs $[z_{+}], [\bar{z}_{+}]$, and $[z_{-}], [\bar{z}_{-}]$. Together, they determine a complete quadrangle with three pairs of opposite lines:
+\begin{align*}
+    \ell_{1} &:= [z_{+}] \vee [\bar{z}_{+}] \quad \text{and} \quad \ell_{2} := [z_{-}] \vee [\bar{z}_{-}], \\
+    \ell_{3} &:= [z_{+}] \vee [z_{-}] \quad \text{and} \quad \ell_{4} := [\bar{z}_{+}] \vee [\bar{z}_{-}], \; \text{and finally} \\
+    \ell_{5} &:= [z_{+}] \vee [\bar{z}_{-}] \quad \text{and} \quad \ell_{6} :=  [z_{-}] \vee [\bar{z}_{+}]
+\end{align*}
+[Figure~\ref{fig:conics-through-four-points}]. However, only the first pair constitutes two real lines: $\ell_{1}$, and $\ell_{2}$, while the other two are pairs of imaginary lines \hyperref[thm:span-real-line]{(Proposition 2.1)}. Any plane through one of these lines, say $\ell_{1}$ intersects $\mathcal{Z}$ only at the corresponding complex conjugate points $[z_{+}]$ and $[\bar{z}_{+}]$, and thus, its intersection with $\mathcal{Q}$ (if non-empty) is necessarily a circle. By considering each pencil of planes determined by one of these lines (as its axis), we get all the circular sections of $\mathcal{Q}$. Note that the any such pencil is a pencil of parallel planes, since its planes intersect in a line at infinity. Therefore, there are three pairs of two pencils of parallel circular sections of $\mathcal{Q}$; one pair is real, and the others are imaginary \cite[\textcolor{CitationColor}{p.~204--205}]{sommervilleAnalyticalGeometry}. \par
+
+In the next Theorem, we compute the equations of the real pair of parallel circular sections in the case of two-sheeted hyperboloids:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{conics-through-four-points.png}
+    \caption{Four intersection points of $\mathcal{C}$ and $\mathcal{Z}$ on the plane at infinity, with the imaginary pairs shown in red and green.}
+    \label{fig:conics-through-four-points}
+\end{figure}
 
 \begin{theorem}
 \label{thm:circular-sections-hyperboloid}
 Let $Q \subset \mathbb{R}^3$ be the two-sheeted hyperboloid
-\begin{equation}
-\label{eq:two-sheeted-alpha-beta-gamma}
-Q : \frac{x^2}{\alpha} - \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1
-\end{equation}
-with $\alpha, \beta, \gamma > 0$ and $\gamma > \beta$. Then the circular sections of $Q$ are given by the two one-parameter families of parallel planes
+\[
+    Q : \frac{x^2}{\alpha} - \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1
+\]
+with $\alpha, \beta, \gamma > 0$ and $\gamma > \beta$. Then the real circular sections of $Q$ are given by the two one-parameter families of parallel planes
 \begin{equation}
 \label{eq:planes-two-sheeted}
 \Pi_{\pm}(\lambda_{\pm}) :\sqrt{\beta (\alpha + \gamma)} x \pm \sqrt{\alpha (\gamma - \beta)} y = \lambda_{\pm}, \quad \quad \lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_{0}, \lambda_{0} \right]
@@ -433,16 +512,12 @@ with $\lambda_{0} := \sqrt{\alpha \beta (\alpha+\beta)}$.
 \end{theorem}
 
 \begin{proof}
-    We embed $\mathbb{R}^3$ into the real projective space $\mathbb{R}\mathbb{P}^3$ and further into the complex projective space $\mathbb{C}\mathbb{P}^3$, and introduce homogeneous coordinates $x_{0}, x_{1}, x_{2}$, and $x_{3}$ such that $x = x_{0} / x_{3}, y = x_{1} / x_{3}$, and $z = x_{2} / x_{3}$. Thus, we identify the plane $x_{3} = 0$ with the plane at infinity. \newline
-We homogenize the affine equation of $Q$ to get
+    We embed $\mathbb{R}^3$ into the real projective space $\mathbb{R}\mathbb{P}^3$ and further into the complex projective space $\mathbb{C}\mathbb{P}^3$, and introduce homogeneous coordinates $x_{0}, x_{1}, x_{2}$, and $x_{3}$ such that $x = x_{0} / x_{3}, y = x_{1} / x_{3}$, and $z = x_{2} / x_{3}$. Thus, we identify the plane $x_{3} = 0$ with the plane at infinity. \par
+Let $\mathcal{Z}$ denote the absolute conic at infinity (\ref{eq:absolute-conic}), and homogenize the affine equation of $Q$ to get
 \[
     \frac{x_{0}^2}{\alpha} - \frac{x_{1}^2}{\beta} - \frac{x_{2}^2}{\gamma} - x_{3}^2 = 0.
 \]
-As we have shown in \hyperref[thm:span-real-line]{Thereom 1.0}, a conic contained in a plane is a circle if and only if it intersects the absolute conic at infinity
-\[
-    \mathcal{Z} : x_{0}^2 + x_{1}^2 + x_{2}^2 = 0, \quad x_{3} = 0
-\]
-in two points, also known as the circular points of the plane. Computing the intersection $Q \cap \mathcal{Z}$, we get four points at infinity in the form of two complex-conjugate solutions to the intersecting equations
+Computing the intersection $Q \cap \mathcal{Z}$, we get four points at infinity in the form of two complex-conjugate solutions to the intersecting equations
 \[
 P_{\pm} =
 \begin{bmatrix}[1.5]
@@ -460,20 +535,20 @@ i\sqrt{\frac{1}{\alpha} + \frac{1}{\beta}}\\
 0
 \end{bmatrix}.
 \]
-Each complex-conjugate pair spans a real line at infinity \hyperref[thm:span-real-line]{(Proposition 2.1)}. We define $\ell_{\pm} := [P_{\pm}] \vee [\overbar{P}_{\pm}]$. The Plücker matrix of each line is given by
+Each complex-conjugate pair spans a real line at infinity. Let $\ell_{\pm} := [P_{\pm}] \vee [\overbar{P}_{\pm}]$. Then its Plücker matrix defined as $[P_{\pm} \overbar{P}_{\pm}^{\top}] - [\overbar{P}_{\pm} P_{\pm}^{\top}]$ is given by the matrix:
 \begin{align*}
-M_{\ell_{\pm}} &= [P_{\pm} \overbar{P}_{\pm}^{\top}] - [\overbar{P}_{\pm} P_{\pm}^{\top}]\\
-&= \begin{bmatrix}
+\begin{bmatrix}
 0 && 0 && \mp 2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}} \sqrt{\frac{1}{\beta} - \frac{1}{\gamma}} && 0\\
 0 && 0 && -2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}} \sqrt{\frac{1}{\alpha} + \frac{1}{\gamma}} && 0\\
 \pm 2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}} \sqrt{\frac{1}{\beta} - \frac{1}{\gamma}} && 2 i \sqrt{\frac{1}{\alpha} + \frac{1}{\beta}}\sqrt{ \frac{1}{\alpha} + \frac{1}{\gamma}} && 0 && 0\\
-\end{bmatrix},
+\end{bmatrix}.
 \end{align*}
-which is a $4 \times 4$ skew-symmetric homogeneous matrix with rank $2$. Its two-dimensional nullspace spans the pencil of planes with the real line $\ell_{\pm}$ as its axis. Therefore, the equation of such pencil in homogeneous coordinates can be written as
+This is a $4 \times 4$ skew-symmetric homogeneous matrix with rank $2$. Its nullspace spans the pencil of planes with the line $\ell_{\pm}$ as its axis. So the equation of the pencil can be written in homogeneous coordinates, after clearing the denominators as
+
 \[
-    \Pi_{\pm}(\lambda_{\pm}) : \sqrt{\beta (\alpha + \gamma)} x_{0} \pm \sqrt{\alpha (\gamma - \beta)} x_{1} - \lambda_{\pm} x_{3} = 0
+    \Pi_{\pm}(\lambda_{\pm}) : \sqrt{\beta (\alpha + \gamma)} x_{0} \pm \sqrt{\alpha (\gamma - \beta)} x_{1} - \lambda_{\pm} x_{3} = 0,
 \]
-where $\lambda_{\pm}$ is the free parameter of the pencil. Since the planes from each individual family intersect in a line at infinity, they must be parallel planes. By construction, their intersection with $Q$ (if non-empty) gives all the circles contained in $Q$. \par
+where $\lambda_{\pm}$ is the free parameter of the pencil. By construction, the intersection of $\Pi_{\pm}(\lambda_{\pm})$ with $Q$ (if non-empty) gives all the real circular sections of $Q$. \par
 It remains to show for which values of $\lambda_{\pm}$ the intersection $Q \cap \Pi_{\pm}(\lambda_{\pm})$ is a non-empty intersection. For this purpose, we identify $Q$ with its Gram matrix
 \[
 Q =
@@ -501,6 +576,15 @@ in the dual projective space $(\mathbb{C}\mathbb{P}^3)^{*}$, and their poles wit
 which is satisfed for $\lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_0, \lambda_0\right]$ with $\lambda := \sqrt{\alpha \beta (\alpha+\beta)}$.
 \end{proof}
 
+\begin{corollary}[]
+\label{col:planes-parallel-umbilic-points}
+Let $Q$ be the two-sheeted hyperboloid as given in \eqref{eq:two-sheeted-alpha-beta-gamma}. Then the planes of its circular sections \eqref{eq:planes-two-sheeted} are parallel to its tangent planes at its two umbilical points.
+\end{corollary}
+
+\begin{proof}
+    Write.
+\end{proof}
+
 \begin{figure}[H]
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid_red.png}
@@ -511,18 +595,44 @@ which is satisfed for $\lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_0, 
     \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid_blue.png}
     \label{fig:two_sheeted_blue}
   \end{subfigure}
-  \caption{Two-sheeted hyperboloid carry two one-parameter families of circular sections. The planes of circular sections are parallel to the tangent planes at the umbilic points.}
+  \caption{Two-sheeted hyperboloid carry two one-parameter families of circular sections. The planes of circular sections are parallel to the tangent planes at the umbilical points.}
 \end{figure}
 
-\begin{corollary}[]
-\label{col:planes-parallel-umbilic-points}
-Let $Q$ be the two-sheeted hyperboloid as given in \eqref{eq:two-sheeted-alpha-beta-gamma}. Then the planes of its circular sections \eqref{eq:planes-two-sheeted} are parallel to its tangent planes at its two umbilic points.
-\end{corollary}
+The same approach employed in the proof of Theorem~\ref{thm:circular-sections-hyperboloid} can be used to explicity compute the circular sections of ellipsoids, one-sheeted hyperboloids, and the elliptical paraboloids. We give the resulting equations here. \par
 
-\begin{proof}
-    Write.
-\end{proof}
+\begin{itemize}[label=$\blacktriangleright$]
+    \item Let $\alpha > \beta > \gamma > 0$, and denote by $\mathcal{E}$ an ellipsoid with equation
+        \[
+            \mathcal{E} \; : \; \frac{x^2}{\alpha} + \frac{y^2}{\beta} + \frac{z^2}{\gamma} = 1.
+        \]
+        Then its real circular sections are given by the two families of parallel planes
+        \begin{equation}
+        \label{eq:planes-ellipsoids}
+            \Pi_{\pm}(\lambda_{\pm}) \; : \; \frac{\sqrt{\alpha - \beta}}{\sqrt{\alpha \beta}} x \pm \frac{\sqrt{\beta - \gamma}}{\sqrt{ \beta \gamma}} z = \lambda_{\pm} \quad \quad \lambda_{\pm} \in \left[ -\lambda_{0}, \lambda_{0} \right],
+        \end{equation}
+        with $\lambda_{0} := \sqrt{\nicefrac{\left(\alpha - \gamma\right)}{\beta}}$. Furthermore, each family of planes is parallel to one of the tangent planes of $\mathcal{E}$ at its umbilical points  \cite{geometryIII}.
+    \item Let $\alpha, \beta, \gamma > 0$ with $\alpha > \beta$, and denote by $\mathcal{H}$ a one-sheeted hyperboloid with equation
+        \[
+            \mathcal{H} \; : \; \frac{x^2}{\alpha} + \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1.
+        \]
+        Then its real circular sections are given by the two families of parallel planes
+        \begin{equation}
+        \label{eq:planes-one-sheeted}
+            \Pi_{\pm}(\lambda_{\pm}) \; : \;  \sqrt{ \gamma (\alpha- \beta) } \ y \pm \sqrt{\beta(\alpha+\gamma)} \ z = \pm \; \lambda_{\pm} \quad \quad \lambda_{\pm} \in \mathbb{R}.
+        \end{equation}
+    \item Let $\alpha > \beta > 0$, and denote by $\mathcal{P}$ an elliptical paraboloid with equation
+        \[
+            \mathcal{P} \; : \; \frac{x^2}{\alpha} + \frac{y^2}{\beta} - 2 z = 0.
+        \]
+        Then its circular sections are given by the two families of parallel planes
+        \begin{equation}
+        \label{eq:planes-paraboloids}
+            \Pi_{\pm}(\lambda_{\pm}) \; : \; \frac{\sqrt{\alpha - \beta}}{\sqrt{\alpha \beta}} y \pm \frac{1}{\sqrt{\alpha}} z = \lambda_{\pm}.
+        \end{equation}
+        As in the case of ellipsoids and two-sheeted hyperboloids, the planes are parallel to the tangent planes of $\mathcal{P}$ at its umbilical points.
+\end{itemize}
 
+\sloppy For a complementary perspective on circles on quadrics, one can refer to \cite{nilovSurfaceContainingLine2011}, in particular \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
 
 \begin{figure}[H]
     \centering
@@ -531,19 +641,12 @@ Let $Q$ be the two-sheeted hyperboloid as given in \eqref{eq:two-sheeted-alpha-b
     \label{fig:circular_sections_one_sheeted}
 \end{figure}
 
-The same idea shown in the proof of Thereom~\ref{thm:circular-sections-hyperboloid} can be used to explicity compute the circular sections of ellipsoids, one-sheeted hyperboloids and the elliptical paraboloids. We only give the resulting equations here. \par
-In the case of ellipsoids, the equation of its two one-parameter families of parallel planes is given by ... \cite{geometryIII}: \par
-In the case of one-sheeted hyperboloids, the equation of its two one-parameter families of parallel planes: There are no umbilic points. \par
-For the elliptical paraboloids, the equation of its two one-parameter families of parallel planes: \par
-
-For another point of view, one can refer to \cite{nilovSurfaceContainingLine2011}, in particular \cite[\textcolor{CitationColor}{\textit{Lemma~2.1}}]{nilovSurfaceContainingLine2011}, and \cite[\textcolor{CitationColor}{\textit{Lemma~2.6}}]{nilovSurfaceContainingLine2011}.
-
 \pagebreak
 %===========================================================
 \section{Families of confocal quadrics}
 \label{sec:confocal-quadrics}
 
-\begin{definition}[]
+\begin{definition}
 \label{def:confocal-quadrics}
 In Euclidean geometry, two quadrics in $\mathbb{R}^3$ are \textit{confocal}, sometimes also referred to as \textit{homofocal}, if they have common axes and intersect each plane of symmetry along confocal conics.
 \end{definition}
@@ -555,9 +658,14 @@ In Euclidean geometry, two quadrics in $\mathbb{R}^3$ are \textit{confocal}, som
     \label{fig:figgg}
 \end{figure}
 
-Nondegenerate families of confocal quadrics come in two types: ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets; and downward-pointing elliptical paraboloids, hyperbolic paraboloids, and upward-pointing elliptic paraboloids. For the remaining sections, the term \textit{confocal quadrics} will refer only to the first type, i.e. a family of confocal ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets. We briefly mention confocal paraboloids in \hyperref[subsec:confocal-paraboloids]{Section 10.1}.\par
+Non-degenerate families of confocal quadrics come in two types:
+\begin{itemize}[label=$\blacktriangleright$]
+    \item Ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets,
+    \item Downward-pointing elliptical paraboloids, upward-pointing elliptic paraboloids, and hyperbolic paraboloids.
+\end{itemize}
+For the remainder of this thesis, the term \textit{confocal quadrics} will refer only to the first type, i.e. a family of confocal ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets. We briefly mention confocal paraboloids in \hyperref[subsec:confocal-paraboloids]{Section 10.1}. \par
 
-Let $a, b, c \in \mathbb{R}$ with $a > b > c > 0$ and consider a non-parabolic quadric in normal form
+Let $a, b, c \in \mathbb{R}$ with $a > b > c$ and consider a non-degenerate, non-parabolic quadric in normal form
 \[
     \frac{x^2}{a} + \frac{y^2}{b} + \frac{z^2}{c} = 1.
 \]
@@ -565,7 +673,7 @@ Then any quadric confocal with it must necessarily be in normal form
 \[
     \frac{x^2}{\tilde{a}} + \frac{y^2}{\tilde{b}} + \frac{z^2}{\tilde{c}} = 1
 \]
-with $\tilde{a} > \tilde{b} > \tilde{c} > 0$, and the differences between the fixed parameters of each quadric must all be equal, i.e.
+with $\tilde{a} > \tilde{b} > \tilde{c}$, and the differences between the fixed parameters of each quadric must all be equal, i.e.
 \[
     a - b = \tilde{a} - \tilde{b}, \quad a - c = \tilde{a} - \tilde{c}, \ \text{ and } \  b - c = \tilde{b} - \tilde{c}.
 \]
@@ -573,17 +681,17 @@ This motivates the following definition \cite{geometryIII}:
 
 \begin{definition}[]
 \label{def:family-of-confocal-quadrics}
-Let $a, b, c \in \mathbb{R}$ with $a > b > c > 0$. Then the one-parameter family of quadrics given by
+Let $a, b, c \in \mathbb{R}$ with $a > b > c > 0$. The one-parameter family of quadrics given by
 \[
     Q_{\lambda} := \left\{ (x, y, z) \in \mathbb{R}^3 : \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} = 1 \right\}, \quad \lambda \in \mathbb{R}
 \]
-is called a family of confocal quadrics.
+is called a family of \textit{confocal quadrics}.
 \end{definition}
 
-Any triple of real numbers $a > b > c > 0$ divides the real line into four segements, and we can recover the subfamilies of quadrics of different signatures in the confocal family accordingly:
+Any triple of real numbers $a, b$, and $c$ divides the real line into four segments, and we can recover the subfamilies of quadrics of different signatures in the confocal family accordingly:
 
 \begin{itemize}[label=$\blacktriangleright$]
-    \item If $\lambda < -a$, then $Q_{\lambda}$ has no real points, or is \enquote{purely imaginary}.
+    \item If $\lambda < -a$, then $Q_{\lambda}$ is purely imaginary with no real points.
     \item If $\lambda \in (-a, -b)$, then $Q_{\lambda}$ is a one-parameter family of confocal two-sheeted hyperboloids.
     \item If $\lambda \in (-b, -c)$, then $Q_{\lambda}$ is a one-parameter family of confocal one-sheeted hyperboloids.
     \item If $\lambda > -c$, then $Q_{\lambda}$ is a one-parameter family of confocal ellipsoids. \par
@@ -595,11 +703,12 @@ For every point $(x, y, z) \in \mathbb{R}^3$ with $x \cdot y \cdot z \neq 0$, i.
 \end{theorem}
 
 \begin{proof}
-    Let $a, b, c \in \mathbb{R}$ be the fixed parameters of the confocal family $Q_{\lambda}$ with $a > b > c > 0$. Given a point $(x, y, z) \in \mathbb{R}^3$, and clearing the denominators of the confocal quadrics equation
-\[
-    \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} = 1,
-\]
-we see that it's a third degree polynomial equation in $\lambda$. It has three real roots $u_{1}, u_{2}$, and $u_{3}$ which can be solved for explicitly, however for our purposes it's enough to note that the three roots lie in the intervals
+    Let $a, b, c \in \mathbb{R}$ be the fixed parameters of the confocal family
+\begin{equation}
+\label{eq:confocal-family-fixed-point}
+    Q_{\lambda} \; : \; \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} = 1,
+\end{equation}
+with $a > b > c > 0$. Given any point $(x, y, z) \in \mathbb{R}^3$, and after clearing the denominators of equation (\ref{eq:confocal-family-fixed-point}), we can see that it's a third degree polynomial equation in $\lambda$. Thus, it has three roots $u_{1}, u_{2}$, and $u_{3}$ which can be solved for explicitly. For our purposes, it's enough to note that these roots are real, and lie in the intervals
 \[
     -a < u_{1} < -b < u_{2} < -c < u_{1}
 \]
@@ -618,13 +727,94 @@ over $\mathbb{R}$ [Figure~\ref{fig:plot}].
     \label{fig:plot}
 \end{figure}
 
-Any triple of confocal quadrics of different signatures meet orthogonally in a unique point $(x, y, z)$ in each octant of $\mathbb{R}^3$. Due to the orthogonality of their curves of intersection, if we parameterize an individual quadric in a particular manner using the confocal family then its two families of coordinate lines are lines of curvature. We elaborate these interesting properties in the next few theorems.
+\begin{theorem}
+\label{thm:confocal-quadrics-intersect-eight-points}
+A confocal ellipsoid, one-sheeted hyperboloid, and two-sheeted hyperboloid intersect orthogonally in eight points in $\mathbb{R}^3$, which lie mirror symmetric with respect to the common principal planes.
+\end{theorem}
+\begin{proof}
+Let $a > b > c > 0$, and define the confocal family
+\[
+    \mathcal{Q}_{\lambda} \; : \; \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} = 1.
+\]
+Then for any fixed $u_{1}, u_{2}, u_{3} \in \mathbb{R}$ with $-a < u_{1} < -b < u_{2} < -c < u_{3}$, the quadrics
+\begin{align*}
+\mathcal{Q}_{u_{1}} \; : \; \frac{x^2}{u_{1} + a} + \frac{y^2}{u_{1} + b} + \frac{z^2}{u_{1} + c} &= 1 \\
+\mathcal{Q}_{u_{2}}\; : \; \frac{x^2}{u_{2} + a} + \frac{y^2}{u_{2} + b} + \frac{z^2}{u_{2} + c} &= 1 \\
+\mathcal{Q}_{u_{3}} \; : \; \frac{x^2}{u_{3} + a} + \frac{y^2}{u_{3} + b} + \frac{z^2}{u_{3} + c} &= 1
+\end{align*}
+respectively determine a confocal two-sheeted hyperboloid, one-sheeted hyperboloid, and ellipsoid. \par
+Define $g : \mathbb{R} \to \mathbb{R}$ such that
+\[
+    g(\lambda) = \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda} - 1.
+\]
+Then $g$ has three first-order poles at $\lambda = -a, \lambda = -b$, and $\lambda = -c$. So we can compute its residues by
+\begin{align*}
+\underset{\lambda = -a}{\text{res}} g(\lambda) &= \lim_{\lambda \to -a} (\lambda + a) g(\lambda) \\
+&= \lim_{\lambda \to -a} x^2 + \frac{\lambda + a}{\lambda + b}  y^2 + \frac{\lambda + a}{\lambda + c} z^2 - (\lambda + a) = x^2.
+\end{align*}
+Similarly, $\text{res}_{\lambda = -b} g(\lambda) = y^2$, and $\text{res}_{\lambda = -c} g(\lambda) = z^2$. Consider the third-degree polynomial in $\lambda$ given by
+\begin{align*}
+p(\lambda) &:= (a+\lambda)(b+\lambda)(c+\lambda)g(\lambda) \\
+&\;= (b+\lambda)(c+\lambda)x^2 + (a+\lambda)(c+\lambda)y^2 + (a+\lambda)(b+\lambda)z^2  - (a+\lambda)(b+\lambda)(c+\lambda),
+\end{align*}
+with its highest order coefficient equal to $-1$. Since $g(u_{1}) = g(u_{2}) = g(u_{3}) = 0$, it follows that $p$ has three distinct real roots at $\lambda = u_{1}, \lambda = u_{2}$, and $\lambda = u_{3}$. Thus, we can factorize it as
+\[
+    p(\lambda) = -(\lambda - u_{1})(\lambda - u_{2})(\lambda - u_{3}).
+\]
+This yields the following form for $g$
+\begin{align*}
+g(\lambda) &= \frac{-(\lambda - u_{1})(\lambda - u_{2})(\lambda - u_{3})}{(a+\lambda)(b+\lambda)(c+\lambda)},
+\end{align*}
+which can be used to re-compute its residues:
+\begin{align*}
+\underset{\lambda = -a}{\text{res}} g(\lambda) &= \lim_{\lambda \to -a} (\lambda + a)g(\lambda) \\
+&= \lim_{\lambda \to -a} \frac{-(\lambda - u_{1})(\lambda - u_{2})(\lambda - u_{3})}{(b+\lambda)(c+\lambda)} \\
+&= \frac{(u_{1} + a)(u_{2} + a)(u_{3} + a)}{(a-b)(a-c)},
+\end{align*}
+and similarly,
+\begin{align*}
+\underset{\lambda = -b}{\text{res}} g(\lambda) &= \frac{(u_{1} + b)(u_{2} + b)(u_{3} + b)}{(a-b)(c-b)}, \\
+\underset{\lambda = -c}{\text{res}} g(\lambda) &= \frac{(u_{1} + c)(u_{2} + c)(u_{3} + c)}{(a-c)(b-c)}.
+\end{align*}
+Equating both results, we get the following:
+\begin{align}
+\label{eq:squared-xyz-form}
+x^2 &= \frac{(u_{1} + a)(u_{2} + a)(u_{3} + a)}{(a-b)(a-c)} \\
+y^2 &= \frac{(u_{1} + b)(u_{2} + b)(u_{3} + b)}{(a-b)(c-b)} \\
+z^2 &= \frac{(u_{1} + c)(u_{2} + c)(u_{3} + c)}{(a-c)(b-c)}.
+\end{align}
+Since the right-hand side of all equations is positive, there exists eight solutions for $(x, y, z)$ given by
+\begin{align}
+\label{eq:sqrt-root-parameterization}
+x &= \pm \frac{\sqrt{u_{1} + a}\sqrt{u_{2} + a}\sqrt{u_{3} + a }}{\sqrt{a-b}\sqrt{a-c}} \\
+y &= \pm \frac{\sqrt{-(u_{1} + b)}\sqrt{u_{2} + b}\sqrt{u_{3} + b}}{\sqrt{a-b}\sqrt{b-c}} \\
+z &= \pm \frac{\sqrt{-(u_{1} + c)}\sqrt{-(u_{2} + c)}\sqrt{u_{3} + c}}{\sqrt{a-c}\sqrt{b-c}}
+\end{align}
+Each solution is contained in one octant of $\mathbb{R}^3$, mirror symmetric with respect to the common principal planes. \par
+It remains to show that the confocal quadrics intersect orthogonally. Define a one-parameter family of functions
+\[
+    f_{\lambda} : \mathbb{R}^3 \to \mathbb{R} \quad \quad (x, y, z) \mapsto \frac{x^2}{a + \lambda} + \frac{y^2}{b + \lambda} + \frac{z^2}{c + \lambda}.
+\]
+Then the confocal quadrics can be defined as level sets of $f_{\lambda}$, i.e. $\mathcal{Q}_{\lambda} = f^{-1}_{\lambda}(\{1\})$. The gradient of $f_{\lambda}$ is given by
+\[
+    \text{grad} \; f_{\lambda}(x, y, z) = \left( \frac{2x}{a + \lambda}, \frac{2y}{b + \lambda}, \frac{2z}{c + \lambda} \right).
+\]
+Let $(x, y, z) \in \mathbb{R}^3$ be one of the eight intersection points of the corresponding confocal quadrics, i.e. $(x, y, z) \in \mathcal{Q}_{u_{1}} \cap \mathcal{Q}_{u_{3}} \cap \mathcal{Q}_{u_{3}}$. To show that the quadrics intersect orthogonally, we just need to show that the gradients, which span the normal lines to the quadrics at their intersection points, are orthogonal. We have
+\begin{align*}
+\left< \text{grad} \; f_{u_{1}}(x, y, z), \text{grad} \; f_{u_{2}}(x, y, z)  \right> &= \left< \left( \frac{2x}{a + u_{1}}, \frac{2y}{b + u_{1}}, \frac{2z}{c + u_{1}} \right), \left( \frac{2x}{a + u_{2}}, \frac{2y}{b + u_{2}}, \frac{2z}{c + u_{2}} \right) \right>  \\
+&= 4 \left( \frac{x^2}{(a + u_{1})(a + u_{2})} + \frac{y^2}{(b + u_{1})(b + u_{2})} + \frac{z^2}{(c + u_{1})(c + u_{2})} \right) \\
+&= 4 \left( \frac{u_{3} + a}{(a - b)(a - c)} - \frac{u_{3} + b}{(a - b)(b - c)} + \frac{u_{3} + c}{(a - c)(b - c)} \right) = 0.
+\end{align*}
+where the last equality follows from (\ref{eq:squared-xyz-form}), and similarly $\left< \text{grad} \; f_{u_{1}}(x, y, z), \text{grad} \; f_{u_{3}}(x, y, z)  \right> = 0$, and $\left< \text{grad} \; f_{u_{2}}(x, y, z), \text{grad} \; f_{u_{3}}(x, y, z)  \right> = 0$.
+\end{proof}
 
 \subsection{Confocal Coordinates}
 \label{subsec:confocal-coordinates}
 
 \subsection{Lines of curvature on confocal quadrics}
 \label{subsec:curvature-lines-on-quadrics}
+We have shown in Theorem~\ref{thm:confocal-quadrics-intersect-eight-points} that any triple of confocal quadrics of different signatures meet orthogonally in a unique point $(x, y, z)$ in each octant of $\mathbb{R}^3$. Due to the orthogonality of their curves of intersection, we can derive curvature line parameterizations for each individual quadric in the confocal family.
+
 \pagebreak
 %===========================================================
 \section{Diagonally related nets on surfaces}
