@@ -58,7 +58,7 @@
   {.}
   {0.5em}
   {}
-% Thereom
+% Theorem
 \theoremstyle{BoldTopSpacing}
 \newtheorem{theorem}{Theorem}[section]
 % Lemma
@@ -111,6 +111,15 @@
 %======================================
 % Citations
 \usepackage[nobreak]{cite}
+% Define cites command for multiple citations
+\makeatletter
+\newcommand{\citecomment}[2][]{\citen{#2}#1\citevar}
+\newcommand{\citeone}[1]{\citecomment{#1}}
+\newcommand{\citetwo}[2][]{\citecomment[,~#1]{#2}}
+\newcommand{\citevar}{\@ifnextchar\bgroup{;~\citeone}{\@ifnextchar[{;~\citetwo}{]}}}
+\newcommand{\citefirst}{\@ifnextchar\bgroup{\citeone}{\@ifnextchar[{\citetwo}{]}}}
+\newcommand{\cites}{[\citefirst}
+\makeatother
 %======================================
 % Images
 \usepackage{float}
