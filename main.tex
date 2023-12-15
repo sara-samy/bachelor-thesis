@@ -187,6 +187,8 @@
 \midrule[0.5mm]
 \end{tabularx}
 
+\textsc{\large Bachelor Thesis}\\[1.5cm]
+
 % Author and supervisor
 \begin{minipage}{0.4\textwidth}
     \begin{flushleft}
@@ -200,7 +202,10 @@
     \begin{flushright}
         \large
         \textit{\textcolor{TUColor}{Supervisor}}\\
-        Dr. Jan \textsc{Techer}
+        Dr. Jan \textsc{Techter}\\
+        \large
+        \textit{\textcolor{TUColor}{Second Supervisor}}\\
+        Prof. Dr. Alexander \textsc{Bobenko}
     \end{flushright}
 \end{minipage}
 
@@ -210,14 +215,17 @@
 \end{center}
 \end{titlepage}
 %===========================================================
-
-
-%===========================================================
 % Set Abstract page style to "fancy"
 \pagestyle{fancy}
-\section*{Abstract}
-\label{sec:abstract}
+\section*{Acknowledgement}
+I would like to thank my supervisor Dr. Jan Techter for assigning me this topic, for his support and for many insightful discussions. I also would like to thank Prof. Dr. Alexander Bobenko for teaching me a lot about geometry and visualization. Overall, I am much indebted to the DDG working group at TU Berlin for their academic support, and for introducing me to many intriguing and beautiful topics in mathematics. \par
+\pagebreak
 
+\section*{}
+\begin{otherlanguage}{german}
+Hiermit erkl\"are ich, dass ich die vorliegende Arbeit selbstst\"andig und eigenh\"andig sowie ohne unerlaubte fremde Hilfe und ausschließlich unter Verwendung der aufgef\"uhrten Quellen und Hilfsmittel angefertigt habe. \par
+Berlin, den \hrule
+\end{otherlanguage}
 \pagebreak
 %===========================================================
 % Set TOC page style to "tocstyle"
@@ -233,6 +241,57 @@
 \pagestyle{fancy}
 \section{Introduction}
 \label{sec:introduction}
+Quadrics and their confocal families have played a prominent role in classical mathematics due to their elegant geometric properties and numerous applications across various domains, ranging from physics to art and architecture. \par
+There are many ways to think about the geometry of quadrics. From the standpoint of differential geometry, quadrics \textemdash with the exception of quadratic cones, could be thought of as parameterized surfaces in $\mathbb{R}^3$, that is, maps $\varphi : \mathcal{U} \subseteq \mathbb{R}^2 \to \mathbb{R}^3$. Some assumptions of genericity are often made, such that the tangent vectors $\partial_{1} \varphi$ and $\partial_{2} \varphi$ are linearly independent in $\mathbb{R}^3$, or that all higher-order partial derivatives exist. The differential $\text{d}\varphi$ allows us to locally examine how a vector
+\[
+    x_{1} \frac{\partial}{\partial u} + x_{2} \frac{\partial}{\partial v}
+\]
+is pushed-forward to $\text{d}\varphi(x_{1}, x_{2})$. More concretely, the differential of $\varphi$ induces a metric
+\[
+    \boldsymbol{g}(x, y) := \langle \text{d}\varphi(x_{1}, x_{2}), \text{d}\varphi(y_{2}, y_{2}) \rangle
+\]
+which is a positive-definite inner product, and thus can be encoded by a symmetric matrix
+\[
+    (x, y) \mapsto x^\top \begin{pmatrix} E & F \\ F & G \end{pmatrix} y
+\]
+with $E = \left< \partial \varphi / \partial u, \partial \varphi / \partial u \right>$, $F = \left< \partial \varphi / \partial u, \partial \varphi / \partial v \right>$, and $G = \left< \partial \varphi / \partial v, \partial \varphi / \partial v \right>$. It's often useful \textemdash albeit not entirely correct, to think of $\boldsymbol{g}$ as a metric on the parameter domain $(u, v)$ itself. \par
+An important invariant of a metric is its \textit{curvature}. One can study the curvature of a surface in terms of the normal curvatures $\kappa_{n}$ of the curves contained on it. The differential of the unit normal $\text{d}\boldsymbol{N}$ of the surface plays a key role here. The shape operator
+\[
+    S_{p} = - \text{d}\boldsymbol{N}_{p},
+\]
+which is a self-adjoint linear operator, encodes the maximum and minimum normal curvatures, denoted as $\kappa_{1}$ and $\kappa_{2}$, respectively, at a specific point on the surface. Additionally, its Eigenvectors are the tangential directions corresponding to these principal curvatures, known as the \textit{the principal directions}. A curve defined along principal directions of a surface is known as a \textit{curvature line}. In this setting, one can show that (non-singular, non-degenerate) quadrics are isothermal surfaces, that is, they admit an orthonormal parameterization along their curvature lines \cite{geometryIII}. \par
+In other contexts, quadrics are usually defined as sets of points whose coordinates satisfy an equation of the second degree:
+\[
+    \sum_{i = 1}^3 a_i x_i^2 + \sum_{\substack{i, j = 1, i \neq j}}^3 a_{ij} x_i x_j + \underbrace{\sum_{i = 1}^3 b_i x_i}_{\text{linear terms}} + \underbrace{C}_{\text{constant term}}
+\]
+This can be an inconvenient definition, since a quadric and the set of points it defines are different objects. For instance, after such a definition all quadrics without points would be equal, and no distinction could be made between a hyperplane such $x = 0$, and a quadric $x^2 = 0$. It is therefore more convenient to define quadrics in a projective setting as a class $\{ \lambda b \}_{\lambda \in \mathbb{R} \setminus \{ 0 \}}$, where $b$ is a non-zero symmetric bilinear form. \par
+Many properties of a given quadric can be defined in terms of its corresponding family of bilinear forms. For instance, associated with any bilinear form on a real $(n+1)$-dimensional vectorspace $V$ is a basis $\{e_1, \cdots, e_{n+1}\}$ such that $b(e_{i}, e_{j}) = 0$ for all $i \neq j$, and
+\[
+(e_i, e_j) = \begin{cases}
+1 & 1 \leq i \leq p \\
+-1 & p+1 \leq i \leq r \\
+0 & r+1 \leq i \leq n+1.
+\end{cases}
+\]
+If $\mathcal{Q}$ is a quadric represented by $b$, then the triple $(p, q := r-p, t := n+1-r)$ defines its \textit{signature}. This is crucial for the classification of quadrics. For instance, quadrics in complex projective space are projectively classifed by their ranks $r$, which may be understood to measure the degree of degeneration of the quadric. Checking the projective equivalence of two complex quadrics can thus be done just by comparing their ranks. Similarly, for the real case, two quadrics are projectively equivalent if they have the same rank $r$ and the same index $r - p$. \par
+
+Both approaches to studying quadrics converge in the topic of confocal quadrics. Confocal quadrics are central to confocal coordinate systems, constituting a class of orthogonal coordinate systems, which is a classical theme in differential geometry. Recent work in \cite{DiscretizationConfocalQuadricsI} has introduced a novel characterization of confocal coordinate systems (See Theorem~\ref{thm:must-be-confocal}). Building on this work in \cites{MutuallyDiagonalNets2019}{geometryIII}, a parametrization for the lines of curvature on ellipsoids, where the diagonal coordinate lines form circles, was presented. It has been shown that any one-parameter family of confocal ellipsoids can be transformed to maintain congruent circular sections. \par
+In this thesis, we extend these results of to one-sheeted and two-sheeted hyperboloids. The main claim is summarized as follows:
+\begin{theorem}
+\label{thm:main-result}
+One- and two-sheeted hyperboloids exhibit the following properties.
+\begin{itemize}
+    \item Any hyperboloid can be sliced into two one-parameter families of circles.
+    \item The net composed of the two families of circular cross sections of a hyperboloid and the net composed of its lines of curvature are mutually diagonal.
+    \item There exists a deformation for hyperboloids, that is isometric along circular sections, preserving circles, curvature lines, and their diagonal relation.
+\end{itemize}
+\end{theorem}
+\vspace{0.7em}
+The proof of this claim is distributed throughout the thesis. In Section~(\ref{sec:circular-sections-of-quadrics}), we revisit the complex projective space and construct a model for Euclidean geometry using the notion of an absolute quadric. In \cite{bobenkoNonEuclideanLaguerreGeometry}, different geometries are presented as instances of the broader idea of a \textit{Cayley-Klein space}. This approach proves valuable in examining planar sections of quadrics, enabling the identification of circles on all non-singular and non-degenerate quadrics \textemdash excluding hyperbolic paraboloids. \par
+Moving on to Section~(\ref{sec:confocal-quadrics}), we define confocal quadrics and discuss their geometric properties, which are essential for establishing confocal coordinate systems. \par
+In Section~(\ref{sec:diagonally-related-nets}), we define the notion of diagonally-related nets on surfaces as introduced in \cite{MutuallyDiagonalNets2019}. Additionally, we present curvature line parameterizations for the one-sheeted and two-sheeted hyperboloids, demonstrating diagonal relation with their circular sections. \par
+Section~(\ref{sec:isometric-deformation}) introduces a family of affine transformations that exhibit isometry along the circular sections of the one-sheeted and two-sheeted hyperboloids. As a result, we derive a one-parameter family of curvature line parametrizations for confocal hyperboloids, describing the isometric deformation of their circular cross sections. \par
+The images in this thesis are created by me. Three-dimensional images are produced using \texttt{pyddg} library and rendered in Blender. Two dimensional illustrations are drawn using Inkscape. Some 2D illustrations are re-created from other sources referenced in the captions. The computer algebra system \texttt{SageMath} is used in proof of Proposition~\ref{prop:affine-transformation-two-hyperboloid}.
 \pagebreak
 %===========================================================
 \section{Circular sections of quadrics}
@@ -345,11 +404,6 @@ for all $X, Y \in \mathbb{R}^{n + 1}$, and $f = [F]$. Then
 \]
 for $x = [X], y = [Y] \in \mathbb{R}\mathbb{P}^n \setminus \{ Q \}$. The Cayley-Klein distance is invariant under the group of projective transformations that preserve the quadric $\mathcal{Q}$, which we call its corresponding group of \textit{isometries}. \par
 \end{remark}
-
-\begin{example}
-\label{ex:hyperbolic-geometry}
-Write
-\end{example}
 
 \subsubsection{The circular points of the Euclidean plane}
 \label{subsubsec:circular-points-two-dimensional}
@@ -488,13 +542,14 @@ Let $\mathcal{C}$ denote this conic section at infinity. Then $\mathcal{C}$ inte
     \ell_{5} &:= [z_{+}] \vee [\bar{z}_{-}] \quad \text{and} \quad \ell_{6} :=  [z_{-}] \vee [\bar{z}_{+}]
 \end{align*}
 [Figure~\ref{fig:conics-through-four-points}]. However, only the first pair constitutes two real lines: $\ell_{1}$, and $\ell_{2}$, while the other two are pairs of imaginary lines \hyperref[thm:span-real-line]{(Proposition 2.1)}. Any plane through one of these lines, say $\ell_{1}$ intersects $\mathcal{Z}$ only at the corresponding complex conjugate points $[z_{+}]$ and $[\bar{z}_{+}]$, and thus, its intersection with $\mathcal{Q}$ (if non-empty) is necessarily a circle. By considering each pencil of planes determined by one of these lines (as its axis), we get all the circular sections of $\mathcal{Q}$. Note that the any such pencil is a pencil of parallel planes, since its planes intersect in a line at infinity. Therefore, there are three pairs of two pencils of parallel circular sections of $\mathcal{Q}$; one pair is real, and the others are imaginary. \par
+If $\mathcal{Q}$ is a paraboloid with homogeneous equation $x_{0}^2 / a + x_{1}^2 / b - 2x_{2}x_{3} = 0$, then it intersects the plane at infinity $x_{3} = 0$ in two lines. In the case of an elliptical paraboloid, with $a, b > 0$, both of these lines are imaginary $x_{0}^2 / a + x_{1}^2 / b = 0$. However, their pencil of planes define real circular sections on the elliptical paraboloid. On the other hand, hyperbolic paraboloids intersect the plane at infinity in two real lines but they defines planes which cut the paraboloid in a line at infinity and another line. This pair form a degenerate case of a circle with centre at infinity. Thus, hyperbolic paraboloids possess no proper circular sections \cite[\textcolor{CitationColor}{p.~204}]{sommervilleAnalyticalGeometry}. \par
 
-In the next Theorem, we compute the equations of the real pair of parallel circular sections in the case of two-sheeted hyperboloids:
+In the following Theorem, we compute the equations of the real pair of parallel circular sections in the case of two-sheeted hyperboloids.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{conics-through-four-points.png}
-    \caption{Four intersection points of $\mathcal{C}$ and $\mathcal{Z}$ on the plane at infinity, with the imaginary pairs shown in red and green \cite[\textcolor{CitationColor}{p.~204}]{sommervilleAnalyticalGeometry}.}
+    \caption[Four intersection points with the absolute conic at infinity.]{Four intersection points of $\mathcal{C}$ and $\mathcal{Z}$ on the plane at infinity, with the imaginary pairs shown in red and green.}
     \label{fig:conics-through-four-points}
 \end{figure}
 
@@ -578,15 +633,6 @@ in the dual projective space $(\mathbb{C}\mathbb{P}^3)^{*}$, and their poles wit
 which is satisfed for $\lambda_{\pm} \in \mathbb{R} \setminus \left[-\lambda_0, \lambda_0\right]$ with $\lambda := \sqrt{\alpha \beta (\alpha+\beta)}$.
 \end{proof}
 
-\begin{corollary}[]
-\label{col:planes-parallel-umbilic-points}
-Let $Q$ be the two-sheeted hyperboloid as given in Equation~\eqref{eq:two-sheeted-alpha-beta-gamma}. Then the planes of its circular sections \eqref{eq:planes-two-sheeted} are parallel to its tangent planes at its two umbilical points.
-\end{corollary}
-
-\begin{proof}
-    Write.
-\end{proof}
-
 \begin{figure}[H]
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid_red.png}
@@ -597,7 +643,7 @@ Let $Q$ be the two-sheeted hyperboloid as given in Equation~\eqref{eq:two-sheete
     \includegraphics[width=\textwidth]{umbilics_two_sheeted_hyperboloid_blue.png}
     \label{fig:two_sheeted_blue}
   \end{subfigure}
-  \caption{Two-sheeted hyperboloid carry two one-parameter families of circular sections. The planes of circular sections are parallel to the tangent planes at the umbilical points.}
+  \caption[Two one-parameter families of circular sections on two-sheeted hyperboloids]{Two-sheeted hyperboloid carry two one-parameter families of circular sections. The planes of circular sections are parallel to the tangent planes at the umbilical points.}
 \end{figure}
 
 The same approach employed in the proof of Theorem~\ref{thm:circular-sections-hyperboloid} can be used to explicity compute the circular sections of ellipsoids, one-sheeted hyperboloids, and the elliptical paraboloids. We give the resulting equations here. \par
@@ -638,7 +684,7 @@ The same approach employed in the proof of Theorem~\ref{thm:circular-sections-hy
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{circles_sections_of_one_sheeted_hyperboloid.png}
+    \includegraphics[width=0.7\textwidth]{circles_sections_of_one_sheeted_hyperboloid.png}
     \caption{One-sheeted hyperboloids carry two one-parameter families of circular sections.}
     \label{fig:circular_sections_one_sheeted}
 \end{figure}
@@ -653,19 +699,25 @@ The same approach employed in the proof of Theorem~\ref{thm:circular-sections-hy
 In Euclidean geometry, two quadrics in $\mathbb{R}^3$ are \textit{confocal}, sometimes also referred to as \textit{homofocal}, if they have common axes and intersect each plane of symmetry along confocal conics.
 \end{definition}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{TU-Berlin-Logo.png}
-    \caption{TO BE ADDED}
-    \label{fig:figgg}
-\end{figure}
-
 Non-degenerate families of confocal quadrics come in two types:
 \begin{itemize}[label=$\blacktriangleright$]
     \item Ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets,
     \item Downward-pointing elliptical paraboloids, upward-pointing elliptic paraboloids, and hyperbolic paraboloids.
 \end{itemize}
 For the remainder of this thesis, the term \textit{confocal quadrics} will refer only to the first type, i.e. a family of confocal ellipsoids, hyperboloids of one sheet, and hyperboloids of two sheets. \par
+
+\begin{proposition}
+\label{prop:normal-form}
+Any ellipsoid, one-sheeted hyperboloid, or two-sheeted hyperboloid $\mathbb{R}^3$ can be brought into the following normal form by a Euclidean motion $\boldsymbol{x} \mapsto A \boldsymbol{x} + \boldsymbol{b}$:
+\[
+    \mathcal{Q} \; : \; \frac{x^2}{a} + \frac{y^2}{b} + \frac{z^2}{c} = 1
+\]
+for some $a > 0$, $b, c \neq 0$, and $a > b > c$.
+\end{proposition}
+
+\begin{proof}
+    See \cite[\textcolor{CitationColor}{Ch.~3}]{odehnalUniverseQuadrics2020}.
+\end{proof}
 
 Let $a, b, c \in \mathbb{R}$ with $a > b > c$ and consider a non-degenerate, non-parabolic quadric in normal form
 \[
@@ -841,7 +893,7 @@ parameterizes the octant $\mathbb{R}_{+}^3 := \{ (x, y, z)\in \mathbb{R}^3 \; : 
 A coordinate system $\boldsymbol{x} : \mathbb{R}^3 \to \mathbb{R}^3$ is called a \textit{confocal coordinate system}, if its coordinate surfaces $\boldsymbol{x}(u_{1}=\text{const.}, u_{2}, u_{3})$, $\boldsymbol{x}(u_{1}, u_{2}=\text{const.}, u_{3})$, and $\boldsymbol{x}(u_{1}, u_{2}, u_{3}=\text{const.})$ are contained in confocal quadrics.
 \end{definition}
 
-It's often useful to reparameterize the coordinate lines of a confocal system according to $u_{i} = u_{i}(s_{i})$. This allows us to obtain new representations of the same system, with particularly nice properties.
+It's often useful to reparameterize the coordinate lines of a confocal system according to $u_{i} = u_{i}(s_{i})$. This allows us to obtain new representations of the same system with particularly nice properties.
 
 \begin{theorem}
 \label{thm:main-confocal-system}
@@ -887,13 +939,14 @@ u_{2} : I_{3} \to \mathcal{I}_{3}, &\quad \quad s_{3} \mapsto u_{3}(s_{3})
 \end{aligned}
 \end{equation*}
 with $\mathcal{I}_{1} = (-a, -b), \mathcal{I}_{2} = (-b, -c)$, and $\mathcal{I}_{3} = (-c, \infty)$ such that (\ref{eq:squared-xyz-form}), or equivalently (\ref{eq:the-quadrics-u1u2u3}) is satisfed for $(x, y, z) = \boldsymbol{x}(s_{1}, s_{2}, s_{3})$, and $u_{1} = u_{1}(s_{1}), u_{2} = u_{2}(s_{2}), u_{3} = u_{3}(s_{3})$. Define the real-valued fuctions $f_{i}, g_{i}, h_{i}$ by
-\begin{equation*}
+\begin{equation}
 \begin{aligned}
+\label{eq:square-root-parametrization}
 f_{1}(s_{1}) &= \sqrt{u_{1}(s_{1}) + a}, & f_{2}(s_{2}) &= \sqrt{u_{2}(s_{2}) + a}, & f_{3}(s_{3}) &= \sqrt{u_{3}(s_{3}) + a}, \\
 g_{1}(s_{1}) &= \sqrt{-(u_{1}(s_{1}) + b)}, & g_{2}(s_{2}) &= \sqrt{u_{2}(s_{2}) + b}, & g_{3}(s_{3}) &= \sqrt{u_{3}(s_{3}) + b}, \\
 h_{1}(s_{1}) &= \sqrt{-(u_{1}(s_{1}) + c)}, & h_{2}(s_{2}) &= \sqrt{-(u_{2}(s_{2}) + c)}, & h_{3}(s_{3}) &= \sqrt{u_{3}(s_{3}) + c}.
 \end{aligned}
-\end{equation*}
+\end{equation}
 Then Equations (\ref{eq:functional-relations}), and (\ref{eq:main-parameterization}) are satisfed. \par
 Now assume $\boldsymbol{x}$ is a coordinate system, and there exists functions $f_{i}, g_{i}, h_{i} : \mathbb{R} \to \mathbb{R}$ satisfying (\ref{eq:main-parameterization}), and the functional relations (\ref{eq:functional-relations}), which are the compatibility conditions for the system:
 \begin{equation}
@@ -906,16 +959,51 @@ u_{1}(s_{1}) &= -h_{1}(s_{1})^2 - c, & u_{2}(s_{2}) &= -h_{2}(s_{2})^2 - c, & u_
 \end{equation}
 Thus, $u_{1}, u_{2}$, and $u_{3}$ can be consistently defined to satisfy (\ref{eq:compatibility-conditions}), and consequently (\ref{eq:the-quadrics-u1u2u3}). Therefore, for any fixed $u_{i} \in \mathcal{I}_{i}$, the coordinate surfaces defined by $\boldsymbol{x}(u_{i} = \text{const.}, u_{j}, u_{k})$ are contained in confocal quadrics with parameters $a, b$, and $c$.
 \end{proof}
-Due to the orthogonality of their curves of intersection, we can derive curvature line parameterizations for each individual quadric in the confocal family.
+Thus, finding confocal coordinates reduces to solving the nine quadratic functional equations (\ref{eq:functional-relations}). A distinguished solution is given in terms of Jacboi elliptic functions \cite[\textcolor{CitationColor}{P.~102}]{geometryIII}. \par
+\begin{remark}
+    The square-root parameterization of confocal coordinates given (\ref{eq:square-root-parametrization}) satisfies a system of PDEs known as \textit{Euler-Darboux System} given by
+\[
+\partial_i \partial_j \boldsymbol{x} = \frac{1}{2 (u_i - u_j)} \partial_i \boldsymbol{x} - \partial_j \boldsymbol{x}.
+\]
+It is also an orthogonal parameterization that satisfes $\left<{\partial_i \boldsymbol{x}},{\partial j \boldsymbol{x}} \right> = 0$ for all $i \neq j$. Thus, by Dupin's theorem it induces a curvature line parameterization for its coordinate confocal quadrics.
+\end{remark}
 
+The following theorem introduces two properties that completely characterize confocal coordinates, namely factorability and orthogonality. Any coordinate system that satisfies both must be confocal.
+
+\begin{theorem}
+\label{thm:must-be-confocal}
+Let
+\[
+\boldsymbol{x} : I_{1} \times I_{2} \times I_{3} \subset \mathbb{R}^3 \to \mathbb{R}^3, \quad \quad \boldsymbol{x}(s_{1}, s_{2}, s_{3}) \mapsto \begin{pmatrix}
+x(s_{1}, s_{2}, s_{3}) \\
+y(s_{1}, s_{2}, s_{3}) \\
+z(s_{1}, s_{2}, s_{3})
+\end{pmatrix}
+\]
+be a coordinate system that satisfes the following two conditions:
+\begin{itemize}
+    \item[(i)] $\boldsymbol{x}$ factorizes:
+        \begin{align*}
+            x(s_1, s_2, x_3) &= f_1(s_1) f_2(s_2) f_{3}(s_3) \\
+            y(s_1, s_2, x_3) &= g_1(s_1) g_2(s_2) g_{3}(s_3) \\
+            z(s_1, s_2, x_3) &= h_1(s_1) h_2(s_2) h_{3}(s_3)
+        \end{align*}
+        for some smooth functions $f_i, g_i, h_i : I_i \to \mathbb{R}, i = 1, 2, 3$, that do not vanish, and whoes derivatives do not constantly vanish.
+    \item[(ii)] $\boldsymbol{x}$ is an orthogonal coordinate system.
+\end{itemize}
+Then $\boldsymbol{x}$ is a confocal cordinate system.
+\end{theorem}
+\begin{proof}
+See \cite{DiscretizationConfocalQuadricsI}.
+\end{proof}
 \pagebreak
 %===========================================================
 \section{Diagonally related nets on surfaces}
 \label{sec:diagonally-related-nets}
 
-We start by defining nets on surfaces. Mutually diagonal nets on surfaces were introduced in \cite{MutuallyDiagonalNets2019}.
+For this section, we focus on mutually diagonal nets on surfaces, first introduced in \cite{MutuallyDiagonalNets2019}. We begin by defining the general notion of nets on surfaces, and provide a few examples.
 
-\begin{definition}[]
+\begin{definition}
 \label{def:nets-on-surfaces}
 A net $\mathcal{N}$ on a surface $\Sigma$ is a pair of one-parameter families of curves on $\Sigma$, such that for every point on $\Sigma$ there exists exactly one curve from each of the two families through that point.
 \end{definition}
@@ -948,16 +1036,16 @@ on the surface $\varphi\left( I_1 \times I_{2} \right) \subset \mathbb{R}^3$, wh
 \begin{figure}[H]
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{Dupin-net.png}
-    \caption{ellipto-hyperbolic}
+    \caption{Elliptical Dupin cyclide.}
     \label{fig:ellipto-hyperbolic-cyclides}
   \end{subfigure}
   \hfill
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{Dupin-net-2.png}
-    \caption{parabolic}
+    \caption{Parabolic Dupin cyclide.}
     \label{fig:parabolic-cyclides}
   \end{subfigure}
-  \caption{Dupin Cyclides}
+  \caption{Nets on Dupin Cyclides.}
 \end{figure}
 
 \begin{example}
@@ -970,9 +1058,7 @@ In Section \ref{subsec:circles-on-quadrics} we proved that non-degenerate quadri
 Let $\mathcal{N}_{1}$ and $\mathcal{N}_{2}$ be two nets on a surface $\Sigma$. Then $\mathcal{N}_{2}$ is called diagonal
 to $\mathcal{N}_{1}$ if the following condition is satisfied whenever any four curves of $\mathcal{N}_{1}$ form a
 (combinatorial) quadrilateral: \newline
-\begin{mathbox}{}
 If one pair of opposite vertices is connected by a curve from $\mathcal{N}_{2}$, then the other pair of opposite vertices is connected by a curve from $\mathcal{N}_{1}$.
-\end{mathbox}
 \end{definition}
 
 \begin{figure}[H]
@@ -982,7 +1068,7 @@ If one pair of opposite vertices is connected by a curve from $\mathcal{N}_{2}$,
     \label{fig:diagonally-related-diagram}
 \end{figure}
 
-\begin{theorem}[]
+\begin{theorem}
 \label{thm:symmetric-definition-diagonal-nets}
 Let $\mathcal{N}_1$ and $\mathcal{N}_2$ be two nets on a surface $\Sigma$. Then $\mathcal{N}_1$ is diagonally related to
 $\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathcal{N}_1$.
@@ -991,7 +1077,26 @@ $\mathcal{N}_2$ if and only if $\mathcal{N}_2$ is diagonally related to $\mathca
 \begin{proof}
     See \cite[\textcolor{CitationColor}{Theorem~8.2.}]{geometryIII}.
 \end{proof}
+
+\begin{remark}
+\label{rm:plusminus}
+Let $\varphi : I_{2} \times I_{2} \to \mathbb{R}^3$ be a parameterization of a surface. We have seen in Example~\ref{ex:coordinate-lines-form-net-on-surfaces}, that its coordinate lines define a net $\mathcal{N}_{\varphi}$ on $\varphi(I_{1} \times I_{2})$ in $\mathbb{R}^3$. Define
+\[
+    s_{1} := u + v \quad \text{and} \quad s_{2} := u - v.
+\]
+Then these new variables generate the parameterization:
+\[
+    \boldsymbol{x}(s_{1}, s_{2}) = \varphi\left(u + v, u - v \right).
+\]
+Consider any quadrilateral formed by the curves of $\mathcal{N}_{\varphi}$. If the points $(u_{1}, v_{1})$ and $(u_{2}, v_{2})$ have the same $s_{1}$ coordinate, i.e. one pair of opposite vertices is connected by a curve from $\mathcal{N}_{\boldsymbol{x}}$. Then
+\[
+    s_{1} = u_{1} + v_{1} = u_{2} + v_{2},
+\]
+or equivalently, $u_{1} - v_{2} = u_{2} - v_{1}$. This implies that $(u_{2}, v_{1})$ and $(u_{1}, v_{2})$ have the same $s_{2}$ coordinate. Thus, the nets corresponding to each parameterization are diagonally related.
+\end{remark}
+
 \subsection{Diagonally related nets on hyperboloids}
+We are now ready to determine the relationship between the lines of curvature and circular sections on one- and two- sheeted hyperboloids.
 
 \begin{theorem}[]
 \label{thm:diagonally-related-one-sheeted}
@@ -1168,7 +1273,7 @@ The right hand side of Equation (\ref{eq:solution-of-h2}) is non-negative for $s
 while the right hand side of Equation (\ref{eq:solution-of-h3}) is non-negative for $s_{3} \in [s_{0}, \infty)$. Perhaps a useful intuition for the domain of parameter $s_{3}$ is that, one can think of two sheets of hyperboloid \textemdash considered together, as a single ellipsoid joined at infinity. \par
 Since $h_{2}$ and $h_{3}$ are determined by the square roots of (\ref{eq:solution-of-h2}-\ref{eq:solution-of-h3}), we obtain two separate parameterizations for each sheet of the hyperboloid $\mathcal{H}$, one for $z > 0$, and another for $z < 0$. The parametrizations of the sheet $\mathcal{H} \cap \{ (x, y, z) \in \mathbb{R}^3 : x > 0\}$ is given by
 \[
-    \varphi^{+}_{\pm} \; : \; [-s^{0}, s^{0}] \times [-s^{0}, \infty] \to \mathbb{R}^3, \quad \quad (s_{2}, s_{3}) \mapsto \begin{pmatrix}
+    \varphi^{+}_{\pm} \; : \; [-s^{0}, s^{0}] \times [-s^{0}, \infty) \to \mathbb{R}^3, \quad \quad (s_{2}, s_{3}) \mapsto \begin{pmatrix}
         x(s_{2}, s_{3}) \\
         y(s_{2}, s_{3}) \\
         z(s_{2}, s_{3})
@@ -1176,7 +1281,9 @@ Since $h_{2}$ and $h_{3}$ are determined by the square roots of (\ref{eq:solutio
 \]
 with
 \begin{align*}
-    FREE CONGO
+    x(s_2, s_3) &= \frac{\sqrt{\alpha (\alpha + \beta)}}{\sqrt{\alpha + \gamma}} \cosh(s_2) \cosh(s_3), \\
+    y(s_2, s_3) &= \frac{\sqrt{\beta (\alpha + \beta)}}{\sqrt{\gamma + \beta}} \sinh(s_2) \sinh(s_3), \\
+    z(s_2, s_3) &= \pm \frac{\sqrt{\gamma} \sqrt{\beta - \gamma}}{\sqrt{\alpha + \gamma}} \sqrt{1 - \frac{\alpha + \beta}{\gamma - \beta} \sinh^2(s_{2})} \sqrt{\frac{\alpha + \beta}{\beta - \gamma} \sinh^2(s_{3}) + 1}.
 \end{align*}
 Similarly, for the other sheet: $\varphi^{-}_{\pm}(s_2, s_3) = \left(-x(s_{2}, s_{3}), y(s_{2}, s_{3}), \pm z(s_{2}, s_{3}) \right)$.
 For the values of parameters $s_{2}$ and $s_{3}$ given, each parameterization covers its half (of the sheet) of the hyperboloid entirely, including the boundary at $z = 0$. Therefore, the entire two-sheeted hyperboloid is covered.
@@ -1184,6 +1291,7 @@ For the values of parameters $s_{2}$ and $s_{3}$ given, each parameterization co
 \pagebreak
 %===========================================================
 \section{Isometric deformation of circular cross sections of hyperboloids}
+\label{sec:isometric-deformation}
 \begin{proposition}
 \label{prop:affine-transformation-one-sheeted}
 Let $\alpha, \beta, \gamma > 0$ with $\alpha > \beta$, and define the one-sheeted hyperboloid:
@@ -1199,7 +1307,7 @@ with $\sigma_{2}, \sigma_{3} > 0$, and
 \label{eq:sigmas-h1}
     \beta(\alpha + \gamma) \sigma_{2}^2 + \gamma(\alpha - \beta) \sigma_{3}^2 = \alpha (\beta + \gamma)
 \end{equation}
-that is isometric on the circular sections of $\mathcal{H}$. Futhermore, any affine transforms of $\mathcal{H}$ under this map are confocal up to scaling.
+that is isometric on the circular sections of $\mathcal{H}$. Futhermore, all affine transforms of $\mathcal{H}$ under this map are confocal up to scaling.
 \end{proposition}
 
 \begin{proof}
@@ -1281,35 +1389,19 @@ where the last equality follows from (\ref{eq:confocals-h1-last}).
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{proof-one-sheeted-transformation.png}
-    \caption{One-sheeted hyperboloid and a sphere centered at the origin intersect in two circles.}
+    \includegraphics[width=0.5\textwidth]{proof-one-sheeted-transformation.png}
+\caption[One-sheeted hyperboloid and a sphere centered at the origin intersect in two circles.]{A one-sheeted hyperboloid with first principal axis $\alpha$ and a sphere centered at the origin intersect in two circles $\mathcal{C}_1$, and $\mathcal{C}_2$ with radii equal to $\sqrt{\alpha}$}
     \label{fig:proof-one-sheeted-transformation}
 \end{figure}
 
 As an extension of Proposition~\ref{prop:affine-transformation-one-sheeted}, we now construct a one-parameter family of curvature line parametrizations of a one-sheeted hyperboloid, which describes the isometric deformation of the circular cross-sections.
 
 \begin{theorem}
-\label{thm:affine-transformation-two-hyperboloid}
-Let $\alpha > \beta > \gamma > 0$ and $\mathcal{H}_{2}$ be the two-sheeted hyperboloid \eqref{eq:two-sheeted-alpha-beta-gamma}. Then, there exists a one-parameter family of affine transformations given by
-\[
-    \mathbb{R}^3 \to \mathbb{R}^3, \quad \quad (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z)
-\]
-with $\sigma_{1}, \sigma_{2}, \sigma_{3} > 0$ and
-\begin{equation}
-    \beta (\alpha + \gamma) \sigma_{2}^2 - \alpha (\beta - \gamma) \sigma_{1}^2 = \gamma (\alpha + \beta)
-\end{equation}
-that is isometric on the circular sections of $\mathcal{H}_{2}$. Any affine transforms of $\mathcal{H}_1$ under this map are confocal up to scaling.
-\end{theorem}
-\begin{proof}
-    Write
-\end{proof}
-
-\begin{theorem}
 \label{thm:isometric-deformation-para-one-hyperboloid}
-Let $a > b > c > 0$ and $\mathcal{H}_{1}(s_{2})$ be a one-parameter family of one-sheeted hyperboloids given by
-\begin{equation}
+Let $a > b > c > 0$ and $\mathcal{H}(s_{2})$ be a one-parameter family of one-sheeted hyperboloids given by
+\begin{equation*}
 x^2 + \frac{a - c}{b - c} \frac{y^2}{\sin(s_{2})^2} -  \frac{a - b}{b - c} \frac{z^2}{ \cos(s_{2})^2} = 1.
-\end{equation}
+\end{equation*}
 Then for each $s_{2} \in \left[ 0, \frac{\pi}{2} \right]$, the two parameterizations
 \begin{align*}
     \varphi_{\pm} &: [-s_{1}^{0}, s_{1}^{0}] \times (-\infty, \infty) \to \mathbb{R}^3, \quad \quad (s_{1}, s_{3}) \mapsto (x, y, z) \\[10pt]
@@ -1321,27 +1413,183 @@ with
 \[
     s_{1}^{0} = \sinh^{-1}\left( \sqrt{ \frac{a - b}{b - c} } \right)
 \]
-are curvature line parameterizations of the two halves $\mathcal{H}_{1}(s_{2}) \cap \{ x \geq 0\}$ and $\mathcal{H}_{1}(s_{2}) \cap \{ x \leq 0\}$ of the one-sheeted hyperboloid, and the curves $s_{1} \pm s_{3} = \text{const.}$ are congruent circles. \newline
+\sloppy are curvature line parameterizations of the two halves ${\mathcal{H}(s_{2}) \cap \{ x \geq 0\}}$ and ${\mathcal{H}(s_{2}) \cap \{ x \leq 0\}}$ of the one-sheeted hyperboloid, and the curves $s_{1} \pm s_{3} = \text{const.}$ are congruent circles. \newline
 This one-parameter family of one-sheeted hyperboloids $\mathcal{H}_{1}(s_{2})$ includes two planar degenerations corresponding to $s_{2} = 0,\left(y = 0 \right)$ and $s_{2} = \pi/2, \left( z = 0 \right)$.
 \end{theorem}
 
+\begin{proof}
+    Let $\alpha, \beta, \gamma > 0$ with $\alpha > \beta$. Let $\mathcal{H}$ denote a one-sheeted hyperboloid transformed under ${(x, y, z) \mapsto (x, \sigma_2 y, \sigma_3 z)}$ as given in Proposition~\ref{prop:affine-transformation-one-sheeted}, and further scale it to have its first semi-axis equal to $1$:
+\[
+\mathcal{H} \; : \; x^2 + \frac{\alpha y^2}{\sigma_{2}^2 \beta} - \frac{\alpha z^2}{\sigma_{3}^2 \gamma} = 1.
+\]
+Now consider the one-parameter families of one-sheeted hyperboloids, which are obtained by uniformly scaling the hyperboloids of a system of confocal quadrics:
+\[
+x^2 + \frac{(u_{2} + a)y^2}{(u_{2} + b)} + \frac{(u_{2} + a)z^2}{(u_{2} + c)} = 1,
+\]
+for $u_{2} \in (-b, -c)$. Set $a = \alpha, b = \sigma_{2}^2 \beta, c = -\sigma_{3}^2 \gamma$. Then $\mathcal{H}$ is embedded in that family for $u_{2} = 0$. \par
+Using the fundamental relations (\ref{eq:compatibility-conditions}), we can write the confocal family as
+\begin{equation}
+\label{eq:last-thm-h1-confocal}
+x^2 + \frac{f_{2}(s_{2})^2 y^2}{g_{2}(s_{2})^2} - \frac{f_{2}(s_{2})^2 z^2}{h_{2}(s_{2})^2} = 1
+\end{equation}
+Let $\hat{g}_{2}(s_{2}) = \frac{g_{2}(s_{2})}{f_{2}(s_{2})}$, and $\hat{h}_{2}(s_{2}) = \frac{h_{2}(s_{2})}{f_{2}(s_{2})}$. Then (\ref{eq:last-thm-h1-confocal}) can be rewritten in the form
+\[
+x^2 + \frac{y^2}{\hat{g}_{2}(s_{2})^2} -  \frac{z^2}{\hat{h}_{2}(s_{2})^2} = 1,
+\]
+where the functions $\hat{g}$ and $\hat{h}$ constitute the semi-axes of the hyperboloid, i.e.
+\[
+f_{2}(s_{2})^2 = \alpha, \quad \hat{g}_{2}(s_{2})^2 = \frac{\beta \sigma_{2}^2}{\alpha} \quad \hat{h}_{2}(s_{2})^2 = \frac{\gamma \sigma_{3} ^2}{\alpha}
+\]
+From Proposition~\ref{prop:affine-transformation-one-sheeted}, we know that they are related by Equation~(\ref{eq:sigmas-h1}), and thus $\hat{g}$ and $\hat{h}$ must satisfy
+\[
+\beta + \gamma = \hat{g}_{2}(s_{2})^2(\alpha + \gamma) + \hat{h}_{2}(s_{2})^2(\alpha - \beta),
+\]
+or equivalently in terms of the parameters of the confocal family $a, b$, and $c$:
+\[
+    b - c = \hat{g}_{2}(s_{2})^2(a - c) + \hat{h}_{2}(s_{2})^2(a - b)
+\]
+The curvature-line parameterization of the hyperboloid $\mathcal{H}$ in terms of the uniformly-scaled confocal family is given by
+\begin{equation}
+\begin{aligned}
+\label{eq:confocal-h1-parameterization}
+    x &= \frac{f_1 f_3}{\sqrt{a-b}\sqrt{a-c}}, \\
+    y &= \frac{g_1 \hat{g}_{2} g_3}{\sqrt{a-b}\sqrt{b-c}}, \\
+    z &= \frac{h_1 \hat{h}_{2} h_3}{\sqrt{a-c}\sqrt{b-c}},
+\end{aligned}
+\end{equation}
+with
+\begin{equation*}
+\begin{aligned}
+f_{1}(s_{1})^2 + g_{1}(s_{1})^2 &= a - b, \quad f_{1}(s_{1})^2 + h_{1}(s_{1})^2 = a - c, \quad h_{1}(s_{1})^2 - g_{1}(s_{1})^2 = b - c \\
+f_{3}(s_{3})^2 - g_{3}(s_{3})^2 &= a - b, \quad f_{3}(s_{3})^2 - h_{3}(s_{3})^2 = a - c, \quad g_{3}(s_{3})^2 - h_{3}(s_{3})^2 = b - c
+\end{aligned}
+\end{equation*}
+The equation relating $\hat{g}$ and $\hat{h}$ is readily solved by trigonometric functions:
+\[
+\hat{g}_{2}(s_{2}) = \frac{\sqrt{b - c}}{\sqrt{a - c}} \sin(s_{2}) \quad \quad \hat{h}_{2}(s_{2}) = \frac{\sqrt{b - c}}{\sqrt{a - b}} \cos(s_{2}).
+\]
+This implies that the parameter of the family of confocal one-sheeted hyperboloid $s_2$ is periodic. Now we solve for the rest of the functions:
+\begin{equation*}
+\begin{aligned}
+g_{1}(s_{1}) &= \sqrt{b - c} \sinh(s_{1}), \quad h_{1}(s_{1}) = \sqrt{b - c} \cosh(s_{1}), \quad f_{1}(s_{1}) = \pm \sqrt{(a - b) - (b - c)\sinh^2(s_{1})} \\
+g_{3}(s_{3}) &= \sqrt{b - c} \cosh(s_{3}), \quad h_{3}(s_{3}) = \sqrt{b - c} \sinh(s_{3}), \quad f_{3}(s_{3}) = \pm \sqrt{(a - c) + (b - c)\sinh^2(s_{3})}
+\end{aligned}
+\end{equation*}
+\sloppy Substituting in Equations (\ref{eq:confocal-h1-parameterization}), we get the parameterizations of the two halves ${\mathcal{H} \cap \{ x \leq 0\}}$ and ${\mathcal{H} \cap \{ x \geq 0\}}$ in the form given in the statement of the Theorem. \par
+As we have already shown in Proposition~\ref{prop:affine-transformation-one-sheeted}, the affine transformation defined by $\sigma_2$ and $\sigma_3$ preserves distances along the circular sections. It follows that for any one-sheeted hyperboloid in the family the curves $s_{1} \pm s_{3} = \text{const.}$ are congruent circles.
+\end{proof}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{h1-deformation.png}
+    \caption[Isometric deformation of one-sheeted hyperboloid along circular sections.]{Diagonally related nets of curvature lines and circular sections on one-sheeted hyperboloid and its isometric deformation along circular sections.}
+    \label{fig:h1-deform}
+\end{figure}
+
+\begin{proposition}
+\label{prop:affine-transformation-two-hyperboloid}
+Let $\alpha > \beta > \gamma > 0$ with $\gamma > \beta$, and define a two-sheeted hyperboloid by
+\[
+    \mathcal{H} \; : \; \frac{x^2}{\alpha} - \frac{y^2}{\beta} - \frac{z^2}{\gamma} = 1.
+\]
+Then, there exists a one-parameter family of affine transformations given by
+\[
+    (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, z)
+\]
+with $\sigma_{1}, \sigma_{2} > 0$, and
+\begin{equation}
+\label{eq:sigmas-h2}
+    \beta (\alpha + \gamma) \sigma_{2}^2 - \alpha (\beta - \gamma) \sigma_{1}^2 = \gamma (\alpha + \beta)
+\end{equation}
+that is isometric on the circular sections of $\mathcal{H}$. Futhermore, all affine transforms of $\mathcal{H}$ under this map are confocal up to scaling.
+\end{proposition}
+\begin{proof}
+Let $\sigma_{1}, \sigma_{2}, \sigma_{3} > 0$. Following the same approach as in the proof of Proposition~\ref{prop:affine-transformation-one-sheeted}, we consider a candidate family of one-parameter affine transformations
+\begin{equation*}
+\label{eq:affine-transformation-h2}
+    (x, y, z) \mapsto (\sigma_{1}x, \sigma_{2}y, \sigma_{3}z),
+\end{equation*}
+that transforms $\mathcal{H}$ to the two-sheeted hyperboloid
+\[
+\tilde{\mathcal{H}} \; : \; \frac{x^2}{\sigma_{1}^2\alpha} - \frac{y^2}{\sigma_{2}^2\beta} - \frac{z^2}{\sigma_{3}^2\gamma} = 1.
+\]
+Let $\Pi_{\pm}(\lambda_{\pm})$ denote the planes of the circular sections of $\mathcal{H}$ (\ref{eq:planes-two-sheeted}). Their normal vectors are given by
+\[
+    n_{\pm} = \left[\sqrt{\beta} \ \sqrt{\alpha + \gamma}, \pm \sqrt{\alpha} \ \sqrt{\gamma - \beta}, 0, 1 \right].
+\]
+Thus, the planes transform under (\ref{eq:affine-transformation-h2}) into
+\begin{equation}
+\label{eq:transformed-plane-h2}
+\tilde{\Pi}_{\pm}(\lambda_{\pm}) \; : \; \frac{\sqrt{\beta (\alpha + \gamma)}}{\sigma_{1}} x \pm \frac{\sqrt{\alpha (\gamma - \beta)}}{\sigma_{2}} y = \lambda_{\pm}
+\end{equation}
+For any fixed $\lambda_{0} = \lambda_{+} = \lambda_{-}$, the circular sections of the hyperboloid intersect in two points, $p_1$ and $p_2$ that lie mirror symmetric with respect to the the coordinate plane $\{z = 0\}$. Any affine transformations that is isometric on the circles must preserve the distance along the $z$-axis between these two intersection points. This implies that $\sigma_{3} = 1$. \par
+
+Our goal now is to find the relation governing $\sigma_{1}$, and $\sigma_{2}$. We compute the affine coordinates of $p_{1}, p_2 \in \mathbb{R}^3$ in terms of $\alpha, \beta, \gamma, \lambda_{0}, \sigma_{1}$, and $\sigma_2$ to get
+\[
+p_{1} = \left( \frac{\sigma_{1} \lambda_{0}}{\sqrt{\beta (\alpha + \gamma)}}, 0, \sigma_{3} \sqrt{\gamma} \sqrt{ \frac{\lambda^2_{0}}{\alpha \beta (\alpha + \gamma)} - 1 } \right), \quad \text{and} \quad p_{2} = \left( \frac{\sigma_{1} \lambda_{0}}{\sqrt{\beta (\alpha + \gamma)}}, 0, -\sigma_{3} \sqrt{\gamma} \sqrt{ \frac{\lambda^2_{0}}{\alpha \beta (\alpha + \gamma)} - 1 } \right).
+\]
+Let $m$ denote midpoint of the line segment $p_{1} \vee p_{2}$. Then
+\[
+    m = \left( \frac{\sigma_{1} \lambda_{0}}{\sqrt{\beta (\alpha + \gamma)}}, 0, 0 \right).
+\]
+The circular section of each plane $\Pi_{\pm}\left(\lambda_{0}\right)$ intersects the symmetry coordinate plane $\{z = 0\}$ in two points, which we denote by $q^{\pm}_{1}$, and $q^{\pm}_{2}$ [Figure~\ref{fig:proof-h2}]. Their coordinates $(x, y, z)$ satisfy the equations
+\[
+    \frac{x^2}{\alpha} - \frac{y^2}{\beta} - 1 = 0,
+\]
+and (\ref{eq:transformed-plane-h2}). Using a computer algebra system, we can explicity compute their coordinates in terms of $\alpha, \beta, \gamma, \lambda_{0}, \sigma_{1}$, and $\sigma_2$. \par
+For the candidate affine transformation to be isometric in the plane of some circular section, it must preserve the distance between any two points on that plane, e.g. $d = \norm{q^{+}_{1} - q^{+}_{2}}$. Choosing $m$ to be one of these points yields a simpler equation for the distance. Again, using a computer algebra system, we equate the equation of the distance before the transformation with $\sigma_{1} = 1, \sigma_{2} = 1$, and after the transformation with an arbitrary $\sigma_{1}, \sigma_{2}$ to get the relation:
+\begin{equation}
+    \beta (\alpha + \gamma) \sigma_{2}^2 - \alpha (\beta - \gamma) \sigma_{1}^2 = \gamma (\alpha + \beta).
+\end{equation}
+If we set $\sigma_{1} = r$ such that $r \in [-r_0, r_0]$ with
+\[
+    r_{0} = \frac{\sqrt{\gamma (\alpha + \beta)}}{\lvert \alpha (b - c) \rvert },
+\]
+Then $\sigma_2$ is given by
+\[
+    \sigma_{2} = \pm \frac{\alpha (\beta - \gamma) r^2 + \gamma (\alpha + \beta)}{\beta (\alpha + \gamma)}.
+\]
+Thus, we have constructed a one-parameter family of affine transformations with parameter $r$, that is isometric on the circular sections of $\mathcal{H}$. In the exact manner shown in the proof of Proposition~\ref{prop:affine-transformation-one-sheeted}, one can again establish that all affine transforms of $\mathcal{H}$ under this map are confocal.
+\end{proof}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.42\textwidth]{proof_h2_side_view.png}
+    \caption[The planes of the circular sections on two-sheeted hyperboloid.]{The planes of the circular sections on two-sheeted hyperboloid for a fixed $\lambda_{0}$. The orange and green points denote $q^{+}_{1,2}$ and $q^{-}_{1,2}$ respectively.}
+    \label{fig:proof-h2}
+\end{figure}
+
+Once again, we extend Proposition~\ref{prop:affine-transformation-two-hyperboloid} to define a one-parameter family of curvature line parameterizations. We state the Theorem without proof, as it follows a similar approach to the proof of Theorem~\ref{thm:isometric-deformation-para-one-hyperboloid}.
+
 \begin{theorem}
 \label{thm:isometric-deformation-para-two-hyperboloid}
-Let $a > b > c > 0$ and $\mathcal{H}_{2}(s_{1})$ be a one-parameter family of two-sheeted hyperboloids given by
+Let $a > b > c > 0$ and $\mathcal{H}(s_{1})$ be a one-parameter family of two-sheeted hyperboloids given by
+\[
+    \frac{b - c}{a - b} \frac{x^2}{\sin^2(s_{1})} - \frac{a - c}{a - b} \frac{y^2}{\cos^2(s_{1})} - z^2 = 1.
+\]
+Then for each $s_{1} \in \left[0, \frac{\pi}{2}\right]$ the two parameterizations
+\begin{align*}
+    \varphi_{\pm} &: [-s^{0}, s^{0}] \times [s^{0}, \infty) \to \mathbb{R}^3, \quad \quad (s_{2}, s_{3}) \mapsto (x, y, z) \\[10pt]
+    x(s_{1}, s_{2}, s_{3}) &= \frac{a - b}{\sqrt{b - c} \sqrt{a - c}} \sin(s_{1}) \cosh(s_{2}) \cosh(s_{3}) \\[10 pt]
+    y(s_{1}, s_{2}, s_{3}) &= \frac{a - b}{\sqrt{a - c} \sqrt{b - c}} \cos(s_{1}) \sinh(s_{2}) \sinh(s_{3}) \\[10 pt]
+    z(s_{1}, s_{2}, s_{3}) &= \pm \sqrt{\frac{b - c}{a - c}} \sqrt{1 - \frac{a - b}{b - c} \sinh^2(s_{2})} \sqrt{\frac{a - b}{b - c} \sinh^2(s_{3}) - 1}
+\end{align*}
+with
+\[
+    s^{0} = \sinh^{-1}\left( \sqrt{ \frac{b - c}{a - b} } \right)
+\]
+are curvature line parameterizations of the two halves $\mathcal{H}(s_{1}) \cap \{ z \geq 0\}$ and $\mathcal{H}(s_{1}) \cap \{ z \leq 0\}$ of one sheet of the two-sheeted hyperboloid, and the curves $s_{2} \pm s_{3} = \text{const.}$ are congruent circles. \newline
+This one-parameter family of one-sheeted hyperboloids $\mathcal{H}(s_{1})$ includes two planar degenerations corresponding to $s_{2} = 0,\left(x = 0 \right)$ and $s_{2} = \pi/2, \left(y = 0 \right)$.
 \end{theorem}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{h2-deform.png}
+    \caption[Isometric deformation of two-sheeted hyperboloid along circular sections.]{Diagonally related nets of curvature lines and circular sections on a two-sheeted hyperboloid and its isometric deformation along circular sections.}
+    \label{fig:h2-deform}
+\end{figure}
 \pagebreak
 %===========================================================
-\appendix
-\section{Quadric hypersurfaces}
-\label{appendix:quadrics}
-\pagebreak
-%===========================================================
-\section{Curvature line parameterizations}
-\label{appendix:curvature-lines}
-\pagebreak
-%===========================================================
-
-
+% THE END
 %===========================================================
 % Set page style to "tocstyle"
 \pagestyle{tocstyle}
