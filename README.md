@@ -10,7 +10,7 @@ one curve from each of the two families through that point.
 </p>
 
 In this thesis, we derive the explicit equations of these parallel planes using the absolute quadric of Euclidean geometry in a projective setting. Then we prove that this net of
-circles on a quadric is _diagonally related_ to the net of curvature lines of the quadric, a condition on two nets first introduced in this [paper](https://arxiv.org/abs/1908.00856).
+circles on a quadric is _diagonally related_ to the net of curvature lines of the quadric, a condition referenced in this [paper](https://arxiv.org/abs/1908.00856).
 Finally, we present an explicit family of isometric deformations (for one-sheeted and two-sheeted hyperboloids) that preserves the circles, the curvature lines and their diagonal relation.
 
 ![h1-deformation](https://github.com/sara-samy/bachelor-thesis/assets/40367628/06b989cb-5aac-4974-8540-79f7b5b940e7)
